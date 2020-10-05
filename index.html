@@ -14,12 +14,18 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/favicon/144.png" />
     <link rel="apple-touch-icon" sizes="152x152" href="/favicon/152.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicon/192.png" />
+    <!-- <link rel="icon" type="image/png" sizes="192x192" href="/favicon/192.png" /> -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/favicon/logo.png"
+    />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon/96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/16.png" />
 
-    <meta name="description" content="" />
+    <meta name="description" content="candleo.money" />
     <meta name="keywords" content="candleo.money, uniswap" />
     <link
       rel="stylesheet"
@@ -27,11 +33,69 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/style.css?v=1" />
   </head>
-  <body>
-    <header><h1>Coming Soon</h1></header>
+  <body id="home">
+    <header class="hero">
+      <div id="navbar" class="navbar">
+        <h1 class="text-primary">
+          <a href="index.html"
+            ><img
+              src="/favicon/logo.png"
+              height="30px"
+              style="vertical-align: -41px"
+            /><span>and</span
+            ><img
+              class="hummer"
+              src="./favicon/hummer2.png"
+              alt="l"
+              srcset=""
+            /><span>eo</span>
+          </a>
+        </h1>
 
-    <script src="./js/main.js"></script>
+        <nav>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#staking">Staking</a></li>
+            <li><a href="index.html#pool">Pool</a></li>
+            <li><a href="index.html#mine">Mine</a></li>
+            <li><a href="index.html#presale">PreSale</a></li>
+            <li>
+              <a
+                href="https://docs.candleo.money/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Docs</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="social" id="social">
+          <img
+            src="./favicon/oie_PzqPgVxixUvw.png"
+            height="40"
+            alt="l"
+            srcset=""
+          />
+          <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >Telegram</a
+          >
+          <a href="http://" target="_blank" rel="noopener noreferrer">Medium</a>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >Twitter</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/main.js?v=1"></script>
   </body>
 </html>
