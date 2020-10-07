@@ -4,9 +4,12 @@
   --bg: #1e1b18ff;
   --bg2: #0a2463ff;
   --text: #fffaffff;
+  /* --text: #ffffffff; */
   --primary-text: #d8315bff;
   --outline: #3e92ccff;
   --theme: #5aff15;
+  --text-danger: #dc3545;
+  --text-safe: #5aff15ff;
 }
 
 *,
@@ -25,6 +28,8 @@ html {
 body {
   font-family: "Gafata", "Open Sans", sans-serif;
   line-height: 1.5;
+  background-color: var(--bg2);
+  /* opacity: 0.5; */
 }
 
 ul {
@@ -48,17 +53,23 @@ p {
 
 .text-danger {
   color: #dc3545 !important;
+  margin-right: 10px;
 }
 .text-safe {
-  color: green !important;
+  /* color: green !important; */
+  color: #5aff15ff !important;
+
+  margin-right: 10px;
 }
+/* .hero {
+  position: relative;
+} */
 
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg);
-  color: var(--primary-text);
   opacity: 0.8;
   width: 100%;
   height: 85px;
@@ -67,7 +78,7 @@ p {
   padding: 0 30px;
   transition: 0.5s;
   overflow: hidden;
-  /* z-index: 12; */
+  z-index: 12;
 }
 
 .text-primary {
@@ -93,7 +104,7 @@ nav ul li a {
   padding: 10px 20px;
   margin: 10px;
   color: var(--text);
-  font-size: 20px;
+  font-size: 21px;
   border: var(--bg) solid 2px;
 }
 
@@ -122,4 +133,151 @@ nav ul li a:hover,
 }
 .text-primary span {
   vertical-align: -41px;
+}
+
+.hero .walletconnect {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--text);
+  opacity: 0.8;
+  width: 90%;
+  height: 60px;
+  position: fixed;
+  top: 100px;
+  padding: 0 30px;
+  transition: 0.5s;
+  overflow: hidden;
+  margin: 0 0 0 5%;
+  z-index: 13;
+}
+
+.walletconnect .address,
+.walletconnect .walletandnetwork {
+  display: flex;
+}
+
+.walletconnect .network,
+.walletconnect .connectWallet,
+.walletconnect .addressname {
+  margin: 5px 10px;
+  padding: 6px 15px;
+}
+
+.walletconnect .addressvalue {
+  margin: 5px 10px;
+  padding: 6px 15px;
+}
+
+.walletconnect .connectWallet {
+  cursor: pointer;
+  border: 2px double var(--text-danger);
+  padding: 6px 15px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.walletconnect .connectWallet:hover {
+  border: 2px double var(--outline);
+}
+
+main {
+  margin-top: 200px;
+}
+
+main .gamecontainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--bg2);
+  /* position: relative; */
+  width: 95vw;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  /* top: 180px; */
+  /* margin-top: 180px; */
+}
+
+main .gamebox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 40px;
+  width: 280px;
+  height: 342px;
+  padding: 24px;
+  background-color: var(--bg);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+main .gamebox:hover {
+  transform: scale(1.1);
+  background-color: var(--outline);
+  background-color: #dc3545;
+  background-color: #252525;
+  background-color: #1e1b18d5;
+  cursor: pointer;
+}
+
+.social-link-mobile-p {
+  /* position: relative; */
+  color: var(--text);
+  margin: 20px;
+  padding: 5px;
+  text-align: center;
+  font-size: 16px;
+  /* align-items: center; */
+  /* width: 20vw; */
+  /* left: 40vw; */
+  bottom: 10px;
+}
+.dashboard h1 {
+  margin-left: 20px;
+  color: var(--text);
+}
+
+/* main .stakeboard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: var(--bg2);
+  width: 95vw;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+} */
+
+main .stakeboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 40px;
+  width: 90vw;
+  /* height: 342px; */
+  padding: 24px;
+  background-color: var(--bg);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: var(--text);
+}
+
+main .stakeboard:hover {
+  transform: scale(1.01);
+  background-color: var(--outline);
+  background-color: #dc3545;
+  background-color: #252525;
+  background-color: #1e1b18d5;
+  /* cursor: pointer; */
+}
+
+.main .productheader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--text);
+  width: 90%;
+  padding: 0 30px;
+  margin: 0 0 0 5%;
 }
