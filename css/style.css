@@ -190,13 +190,27 @@ main .gamecontainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   background-color: var(--bg2);
-  /* position: relative; */
-  width: 95vw;
+  /* width: 95vw; */
   align-items: center;
   justify-items: center;
   position: relative;
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--text);
+}
+
+main .gamecontainerstake {
+  display: flex;
+  background-color: var(--bg2);
+  /* position: relative; */
+  /* width: 95vw; */
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  justify-content: center;
   /* top: 180px; */
-  /* margin-top: 180px; */
+  margin-top: 40px;
 }
 
 main .gamebox {
@@ -210,14 +224,40 @@ main .gamebox {
   background-color: var(--bg);
   border-radius: 8px;
   transition: all 0.2s ease;
+  /* background-image: linear-gradient(to bottom right, red, green, yellow); */
+  background: linear-gradient(
+    -45deg,
+    #030303,
+    #030303,
+    #ee7752,
+    #e73c7e,
+    #23a6d5,
+    #23d5ab,
+    #030303,
+    #030303
+  );
+  animation: gradient 20s ease infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 main .gamebox:hover {
   transform: scale(1.1);
   background-color: var(--outline);
-  background-color: #dc3545;
+  /* background-color: #dc3545;
   background-color: #252525;
-  background-color: #1e1b18d5;
+  background-color: #1e1b18d5; */
   cursor: pointer;
 }
 
@@ -233,6 +273,22 @@ main .gamebox:hover {
   /* left: 40vw; */
   bottom: 10px;
 }
+
+.dashboardContainer {
+  width: 90%;
+  margin: 40px auto;
+  align-self: center;
+  min-height: 20vh;
+  padding: 10px 15px;
+  color: var(--text);
+  background-color: var(--bg);
+}
+.dashboardContainer .dashboardbody {
+  margin: 20px auto;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 .dashboard h1 {
   margin-left: 20px;
   color: var(--text);
@@ -247,14 +303,19 @@ main .gamebox:hover {
   justify-items: center;
   position: relative;
 } */
+main {
+  align-items: center;
+}
 
 main .stakeboard {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 40px;
+  /* justify-self: center; */
+  /* margin: 40px; */
+  /* align-self: center; */
+  /* margin-left: 5vw; */
   width: 90vw;
-  /* height: 342px; */
   padding: 24px;
   background-color: var(--bg);
   border-radius: 8px;
@@ -263,21 +324,314 @@ main .stakeboard {
 }
 
 main .stakeboard:hover {
-  transform: scale(1.01);
-  background-color: var(--outline);
-  background-color: #dc3545;
-  background-color: #252525;
-  background-color: #1e1b18d5;
+  transform: scale(1.005);
+  /* background-color: var(--outline); */
+  /* background-color: #dc3545; */
+  /* background-color: #252525; */
+  /* background-color: #1e1b18d5; */
   /* cursor: pointer; */
 }
 
-.main .productheader {
+/* .main .productheader {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg);
   color: var(--text);
-  width: 90%;
   padding: 0 30px;
-  margin: 0 0 0 5%;
+  margin: 20px 0 20px 5%;
+} */
+
+.main .productheader {
+  display: grid;
+  grid-template-columns: 5fr 1fr 5fr 1fr 5fr;
+  row-gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 10px 30px;
+  margin: 20px 0;
+}
+
+.main .productbody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--text);
+  /* width: 90%; */
+  padding: 0 30px;
+  margin: 25px 0;
+}
+
+.main .productbody button {
+  background-color: var(--bg2);
+  color: var(--text);
+  border: 2px solid var(--primary-text);
+  /* border-radius: 15px; */
+  padding: 10px 20px;
+  margin: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.main .productbody button:hover {
+  border: 2px solid var(--theme);
+}
+
+.main .productheaderNewStaker {
+  display: grid;
+  grid-template-columns: 5fr 5fr;
+  /* grid-template-columns: 5fr 1fr 5fr 1fr 5fr; */
+  row-gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 10px 30px;
+  margin: 5px 0;
+}
+
+.main .newStakerbody {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 0 30px;
+  margin: 15px 0;
+  height: 45vh;
+  min-height: 350px;
+}
+.main .leftbox {
+  width: 40%;
+}
+.main .rightbox {
+  width: 60%;
+  /* height: 100px; */
+  /* border: firebrick solid 2px; */
+  /* background-color: ghostwhite; */
+}
+
+.main .leftbox {
+  background: url("../images/lottery.gif") no-repeat left center/contain;
+  /* z-index: 15; */
+  /* background-size: contain; */
+  height: 100%;
+  /* text-align: ; */
+}
+
+.main .rightbox h1 {
+}
+
+.main .rightbox p {
+}
+
+.main .rightbox button {
+  background-color: var(--bg2);
+  color: var(--text);
+  border: 2px solid var(--primary-text);
+  /* border-radius: 15px; */
+  padding: 10px 20px;
+  margin: 5px 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.main .rightbox button:hover {
+  border: 2px solid var(--theme);
+  background-color: var(--bg);
+}
+
+.main .rightbox .inputstake {
+  display: flex;
+  border: 2px double var(--theme);
+  display: flex;
+  align-items: center;
+  color: var(--theme);
+  padding: 0 14px;
+  background-color: var(--bg2);
+  /* border: 2px solid var(--theme-color); */
+  justify-content: space-between;
+}
+
+.main .rightbox .maxBalance {
+  border: 1px solid white;
+  border-radius: 5px;
+  color: White;
+  font-weight: bold;
+  background-color: blue;
+  padding: 1px 10px;
+  cursor: pointer;
+}
+
+.main .rightbox .maxOn {
+  color: white;
+  background-color: blue;
+}
+
+.main .rightbox .theme-color-btn-input {
+  display: inline-block;
+  background-color: var(--bg2);
+  width: 100%;
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: White !important;
+}
+/* table for tokenomics presale */
+
+table {
+  width: 100%;
+  /* font-size: 18px; */
+}
+
+th {
+  /* white-space: nowrap;  */
+  font-weight: 600;
+}
+
+th,
+td {
+  padding: 7px 13px;
+  border: 1px solid #e8e8e8;
+}
+
+#alreadyStaker,
+#newStaker,
+#stakedapp,
+#inputstake {
+  display: none;
+}
+#stakeappdisconnected {
+  display: auto;
+  color: var(--text);
+  text-align: center;
+}
+
+#NewStakerApprove:disabled,
+#OldStakerApprove:disabled {
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 5px 10px;
+    position: relative;
+  }
+  .hero .walletconnect img,
+  .social img,
+  .productheader img {
+    display: none;
+  }
+  nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin: auto 10px;
+  }
+
+  .social {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-area: auto;
+    gap: 5px;
+    margin: 5px 10px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .social a {
+    padding: 5px 10px;
+    margin: 3px 10px;
+  }
+
+  .hero .walletconnect {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    position: relative;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 0 10px;
+    transition: 0;
+    overflow: hidden;
+    top: 0;
+    margin-top: 15px;
+  }
+
+  .walletconnect .address,
+  .walletconnect .walletandnetwork {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .walletconnect .network,
+  .walletconnect .connectWallet,
+  .walletconnect .addressname,
+  .tokenBalance {
+    margin: 5px 5px;
+    padding: 5px 5px;
+    /* margin: 0;
+    padding: 0; */
+  }
+
+  .walletconnect .addressvalue {
+    margin: 5px 5px;
+    padding: 5px 5px;
+  }
+
+  .walletconnect .connectWallet {
+    cursor: pointer;
+    border: 2px double var(--text-danger);
+    padding: 5px 5px;
+    color: var(--text);
+    white-space: nowrap;
+  }
+
+  .walletconnect .address,
+  .walletconnect .walletandnetwork {
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    margin-top: 15px;
+  }
+
+  main .gamecontainer,
+  main .gamecontainerstake,
+  main .stakeboard,
+  /* .main .productheader, */
+  .main .productbody,
+  .main .productheaderNewStaker {
+    display: flex;
+    flex-direction: column;
+  }
+  .main .productheader {
+    grid-template-columns: 1fr 1fr 1fr;
+    /* width: 120%; */
+    /* justify-content: center; */
+  }
+  .main .newStakerbody {
+    display: flex;
+    flex-direction: column;
+  }
+  .main .leftbox {
+    width: 100%;
+    /* height: auto; */
+  }
+  .main .rightbox {
+    width: 100%;
+    height: 1000px;
+    /* height: auto; */
+    /* border: firebrick solid 2px; */
+    /* background-color: ghostwhite; */
+  }
 }

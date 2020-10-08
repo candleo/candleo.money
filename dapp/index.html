@@ -34,6 +34,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/style.css?v=1" />
+    <!-- <link rel="stylesheet" href="../css/alertify.min.css" /> -->
+    <link rel="stylesheet" href="../css/alertify.css" />
+    <!-- <link rel="stylesheet" href="../css/alertify.rtl.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/bootstrap.rtl.min.css" /> -->
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
+    <!-- <link rel="stylesheet" href="../css/themes/default.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/default.rtl.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/semantic.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/semantic.rtl.min.css" /> -->
   </head>
   <body id="home">
     <header class="hero">
@@ -121,30 +131,105 @@
         </div>
       </div>
     </header>
-    <main class="main">
+    <main class="main" id="stakedapp">
       <div class="dashboard">
         <h1>Stake</h1>
       </div>
-      <div class="gamecontainer">
+      <div class="gamecontainerstake" id="alreadyStaker">
         <div class="stakeboard" id="gamebox1">
-            <div class="productheader">
-                <div class="stakeBalance" id="stakeBalance"></div> 
-                <img
-                src="../favicon/oie_PzqPgVxixUvw.png"
-                height="30"
-                alt="l"
-                srcset=""
-              />
-              <div class="pendingRewards" id="pendingRewards"></div>
-              <img
-                src="../favicon/oie_PzqPgVxixUvw.png"
-                height="30"
-                alt="l"
-                srcset=""
-              />
-              <div class="lastactionTime" id="lastActionTime"></div>
-            </div>
+          <div class="productheader">
+            <div class="stakeBalance" id="stakeBalance"></div>
+            <img
+              src="../favicon/oie_PzqPgVxixUvw.png"
+              height="30"
+              alt="l"
+              srcset=""
+            />
+            <div class="pendingRewards" id="pendingRewards"></div>
+            <img
+              src="../favicon/oie_PzqPgVxixUvw.png"
+              height="30"
+              alt="l"
+              srcset=""
+            />
+            <div class="lastactionTime" id="lastActionTime"></div>
+          </div>
+          <div class="productbody">
+            <button id="OldStakerApprove">Approve</button>
+            <button>Redeem</button>
+            <button>Unstake</button>
+          </div>
         </div>
+      </div>
+      <div class="gamecontainerstake" id="newStaker">
+        <div class="stakeboard">
+          <p>This Project is in Beta. Use at your own risk</p>
+
+          <div class="productheaderNewStaker">
+            <h1>Welcome to Candleo Staking</h1>
+            <!-- <div></div>
+            <div></div>
+            <div></div> -->
+            <h1>Total Staked Balance: 1021.0531520516</h1>
+          </div>
+          <div class="newStakerbody">
+            <div class="leftbox"></div>
+            <div class="rightbox">
+              <h2>Dear Hooman,</h2>
+              <p>
+                With crypto staking you will receive a reward. This is usually a
+                fixed percentage per year. The percentage is an indication and
+                could theoretically change. In candleo, Estimated annual yield
+                will be 30% of the amount staked. For instance, if you stake 100
+                tokens for 365days you will get 30 tokens as rewards in the end.
+              </p>
+              <!-- <br /> -->
+              <p>
+                Note: Stakes and rewards will be locked for the next 24 hours
+                after staking, unstaking or claiming the rewards.
+              </p>
+              <br />
+              <p>
+                Before starting to stake your funds, you need to approve staking
+                contract. Click on approve button to start staking.
+              </p>
+              <button id="NewStakerApprove">Approve</button>
+              <div class="inputstake" id="inputstake">
+                <div class="maxBalance" id="maxBalanceToStake">max</div>
+                <input
+                  autocomplete="off"
+                  id="entered-value-stake"
+                  class="theme-color-btn-input"
+                  placeholder="0.00"
+                />
+                <h3>LEO</h3>
+              </div>
+              <div class="productheader">
+                <div class="stakeBalance" id="stakingRate"></div>
+                <img
+                  src="../favicon/oie_PzqPgVxixUvw.png"
+                  height="30"
+                  alt="l"
+                  srcset=""
+                />
+                <div class="pendingRewards" id="redemptionRate"></div>
+                <img
+                  src="../favicon/oie_PzqPgVxixUvw.png"
+                  height="30"
+                  alt="l"
+                  srcset=""
+                />
+                <div class="lastactionTime" id="unstakingRate"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <main class="main" id="stakeappdisconnected">
+      <div class="dashboard">
+        <h1>Please Connect your wallet first</h1>
+      </div>
     </main>
     <footer>
       <p class="social-link-mobile-p">
@@ -157,6 +242,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="../js/web3.min.js"></script>
+    <script src="../js/alertify.js"></script>
     <script src="../js/dapp.js?v=1"></script>
     <script src="../js/main.js?v=1"></script>
   </body>

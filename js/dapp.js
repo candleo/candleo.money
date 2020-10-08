@@ -3,6 +3,8 @@ let tokenadd; //token contract address
 let stakeadd; //Stake contract address
 let net; //current network
 let accounts,
+  stakeHolderAc,
+  timestring,
   currentAccount,
   STAKINGCONTRACT,
   XFICONTRACT,
@@ -20,15 +22,42 @@ metamaskIntegration = async () => {
     window.web3 = new Web3(window.ethereum);
     try {
       await window.ethereum.enable();
+      alertify.notify(
+        "Wallet Connected Successfully",
+        "success",
+        5,
+        function () {}
+      );
     } catch (error) {
-      alert("Connect to metamask/ethereum based wallet");
+      alertify.notify(
+        error.message + " confirm from metamask/etheruem supported wallets",
+        "error",
+        5,
+        function () {}
+      );
+      $("#alreadyStaker").css("display", "none");
+      $("#newStaker").css("display", "none");
+      $("#stakeappdisconnected").css("display", "block");
+      $("#stakedapp").css("display", "none");
+
+      // alert("Connect to metamask/ethereum based wallet");
     }
   } else if (window.web3) {
     metaMask = true;
     window.web3 = new Web3(web3.currentProvider);
   } else {
     metaMask = false;
-    alert("You should connect/install MetaMask first");
+    alertify.notify(
+      "You should connect/install MetaMask first",
+      "error",
+      5,
+      function () {}
+    );
+    // alert("You should connect/install MetaMask first");
+    $("#alreadyStaker").css("display", "none");
+    $("#newStaker").css("display", "none");
+    $("#stakeappdisconnected").css("display", "block");
+    $("#stakedapp").css("display", "none");
   }
   // window.ethereum.on("accountsChanged", function (_accounts) {});
   await web3.eth.getAccounts(function (error, result) {
@@ -40,13 +69,29 @@ metamaskIntegration = async () => {
 };
 
 if (window.ethereum) {
-  window.ethereum.on("accountsChanged", function (accounts) {
+  window.ethereum.on("accountsChanged", function (currentAccount) {
     // window.location.reload();
     // ConnectWallet();
+    //Hide stake panel
+    $("#alreadyStaker").css("display", "none");
+    $("#newStaker").css("display", "none");
+    $("#stakeappdisconnected").css("display", "block");
+    $("#stakedapp").css("display", "none");
+
+    //disconnect wallet
+    $("#addressValue").text(`Address: Please connect your wallet first.`);
+    $("#connectwallet").html(
+      `<i class="fa fa-circle text-danger"></i>Connect Wallet`
+    );
+    $("#connectwallet").css("border", "2px double var(--text-danger)");
+
+    //genrate request for wallet connection
+    initContract();
   });
   ethereum.on("chainChanged", (chainId) => {
     // window.location.reload();
-    net = web3.eth.net.getNetworkType();
+    // net = web3.eth.net.getNetworkType();
+    // initContract();
   });
 }
 
@@ -1855,53 +1900,198 @@ initContract = () => {
         );
         $("#connectwallet").css("border", "2px double var(--text-safe)");
       }
+
       if (net) {
         $("#netwrokID").text(`Network: ${net}`);
       }
     })
     .then(() => {
       //Token Balance
-      token.methods
-        .balanceOf(currentAccount)
-        .call()
-        .then((balance) => {
-          $("#tokenBalance").text(
-            "Balance: " + web3.utils.fromWei(balance, "ether") + " LEO"
-          );
-          myTokenBalance = balance;
-        });
-      //staked Balance
-      stake.methods
-        .stakesOf(currentAccount)
-        .call()
-        .then((stakeBalance) => {
-          $("#stakeBalance").text(
-            "Staked: " + web3.utils.fromWei(stakeBalance, "ether") + " LEO"
-          );
-        });
+      if (currentAccount) {
+        token.methods
+          .balanceOf(currentAccount)
+          .call()
+          .then((balance) => {
+            $("#tokenBalance").text(
+              "Balance: " + web3.utils.fromWei(balance, "ether") + " LEO"
+            );
+            myTokenBalance = balance;
+          })
+          .then(() => {
+            //allowance
+            token.methods
+              .allowance(currentAccount, stakeadd)
+              .call()
+              .then((approvedAmount) => {
+                console.log(approvedAmount);
+                console.log(myTokenBalance);
+                if (+myTokenBalance == "0") {
+                  console.log("mybalance" + myTokenBalance);
+                  $("#NewStakerApprove").show();
+                  $("#OldStakerApprove").show();
+                  $("#NewStakerApprove").prop("disabled", true);
+                  $("#OldStakerApprove").prop("disabled", true);
+                } else if (+approvedAmount >= +myTokenBalance) {
+                  $("#NewStakerApprove").hide();
+                  $("#OldStakerApprove").hide();
+                  $("#inputstake").show();
+                  $("#inputstake").css("display", "flex");
+                } else {
+                  $("#NewStakerApprove").show();
+                  $("#OldStakerApprove").show();
+                  $("#NewStakerApprove").prop("disabled", false);
+                  $("#OldStakerApprove").prop("disabled", false);
+                }
+              });
+          });
+        //staked Balance
+        stake.methods
+          .stakesOf(currentAccount)
+          .call()
+          .then((stakeBalance) => {
+            $("#stakeBalance").text(
+              "Staked: " + web3.utils.fromWei(stakeBalance, "ether") + " LEO"
+            );
+          });
 
-      //pendingRewards
-      stake.methods
-        .rewardOf(currentAccount)
-        .call()
-        .then((rewardBalance) => {
-          $("#pendingRewards").text(
-            "Rewards: " + web3.utils.fromWei(rewardBalance, "ether") + " LEO"
-          );
-        });
+        //pendingRewards
+        stake.methods
+          .rewardOf(currentAccount)
+          .call()
+          .then((rewardBalance) => {
+            $("#pendingRewards").text(
+              "Rewards: " + web3.utils.fromWei(rewardBalance, "ether") + " LEO"
+            );
+          });
 
-      //lastActionTime
-      stake.methods
-        .Staker(currentAccount)
-        .call()
-        .then((stakeholder) => {
-          $("#lastActionTime").text(
-            "Next Redeem/Unstake Time : " + toDateTime(+stakeholder[1] + 86400)
-            // "Next Redeem/Unstake Time : " + toDateTime(+stakeholder[1])
-          );
-        });
+        //lastActionTime
+        stake.methods
+          .Staker(currentAccount)
+          .call()
+          .then((stakeholder) => {
+            stakeHolderAc = stakeholder;
+            //_possibleUnstakeTime
+            //pendingRewards
+            if (stakeholder["_isStaker"]) {
+              $("#alreadyStaker").css("display", "flex");
+              $("#newStaker").css("display", "none");
+              $("#stakeappdisconnected").css("display", "none");
+              $("#stakedapp").css("display", "block");
+
+              stake.methods
+                ._possibleUnstakeTime()
+                .call()
+                .then((ptime) => {
+                  $("#lastActionTime").text(
+                    "Next Redeem/Unstake Time : " +
+                      toDateTime(+stakeholder[1] + +ptime)
+                    // "Next Redeem/Unstake Time : " + toDateTime(+stakeholder[1])
+                  );
+                });
+            } else {
+              $("#lastActionTime").text(
+                "Next Redeem/Unstake Time : Not Applicable"
+              );
+              $("#alreadyStaker").css("display", "none");
+              $("#newStaker").css("display", "flex");
+              $("#stakeappdisconnected").css("display", "none");
+              $("#stakedapp").css("display", "block");
+            }
+          });
+
+        //Staking rate
+        stake.methods
+          .stakingFeeRate()
+          .call()
+          .then((stakingFeeRate1) => {
+            $("#stakingRate").text(
+              "Staking Rate: " + stakingFeeRate1 / 100 + " %"
+            );
+          });
+
+        //Reward Redemption Rate
+        stake.methods
+          .rewardFeeRate()
+          .call()
+          .then((rewardFeeRate1) => {
+            $("#redemptionRate").text(
+              "Redemption Rate: " + rewardFeeRate1 / 100 + " %"
+            );
+          });
+
+        //Unstaking Rate
+        stake.methods
+          .unstakingFeeRate()
+          .call()
+          .then((unstakingFeeRate1) => {
+            $("#unstakingRate").text(
+              "Unstaking Rate: " + unstakingFeeRate1 / 100 + " %"
+            );
+          });
+      }
     });
 };
+
+$("#NewStakerApprove").click(async () => {
+  if (currentAccount) {
+    token.methods
+      .approve(stakeadd, "30000000000000000000000")
+      .send({ from: currentAccount, gasLimit: 50000, gasPrice: 150000000000 })
+      .on("transactionHash", function (hash) {
+        // $("#approveBtn").attr("disabled", "");
+        // $("#approveBtn").find(".before-click").addClass("d-none");
+        // $("#approveBtn").find(".after-click").removeClass("d-none");
+      })
+      .on("confirmation", function (confirmationNumber, receipt) {
+        // $("#approveBtn").removeAttr("disabled");
+        // $("#approveBtn").find(".after-click").addClass("d-none");
+        // $("#approveBtn").find(".before-click").removeClass("d-none");
+        // $("#successModal").modal("show");
+        setTimeout(function () {
+          // $("#successModal").modal("hide");
+          // $("#btnStake").removeAttr("disabled");
+          // $("#approval-section").addClass("d-none");
+        }, 2000);
+      });
+  }
+});
+
+$("#OldStakerApprove").click(async () => {
+  if (currentAccount) {
+    token.methods
+      .approve(stakeadd, "30000000000000000000000")
+      .send({ from: currentAccount, gasLimit: 50000, gasPrice: 150000000000 })
+      .on("transactionHash", function (hash) {
+        // $("#approveBtn").attr("disabled", "");
+        // $("#approveBtn").find(".before-click").addClass("d-none");
+        // $("#approveBtn").find(".after-click").removeClass("d-none");
+      })
+      .on("error", function (error) {
+        // $("#approveBtn").attr("disabled", "");
+        // $("#approveBtn").find(".before-click").addClass("d-none");
+        // $("#approveBtn").find(".after-click").removeClass("d-none");
+        // console.log(error);
+        alertify.notify(error.message, "error", 5, function () {
+          // console.log("dismissed");
+        });
+      })
+      .on("confirmation", function (confirmationNumber, receipt) {
+        // $("#approveBtn").removeAttr("disabled");
+        // $("#approveBtn").find(".after-click").addClass("d-none");
+        // $("#approveBtn").find(".before-click").removeClass("d-none");
+        // $("#successModal").modal("show");
+        console.log(receipt);
+        alertify.notify(receipt, "success", 5, function () {
+          // console.log("dismissed");
+        });
+        setTimeout(function () {
+          // $("#successModal").modal("hide");
+          // $("#btnStake").removeAttr("disabled");
+          // $("#approval-section").addClass("d-none");
+        }, 2000);
+      });
+  }
+});
 
 function toDateTime(secs) {
   var t = new Date(1970, 0, 1); // Epoch
@@ -1932,10 +2122,11 @@ function toDateTime(secs) {
     t.getMinutes() +
     ":" +
     t.getSeconds();
-
-  return t;
+  timestring = t;
+  // return t;
+  return t.toLocaleDateString() + " " + t.toLocaleTimeString() + " UTC";
 }
 
 $(function () {
-  initContract();
+  // initContract();
 });

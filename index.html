@@ -34,6 +34,16 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/css/style.css?v=1" />
+    <!-- <link rel="stylesheet" href="../css/alertify.min.css" /> -->
+    <link rel="stylesheet" href="../css/alertify.css" />
+    <!-- <link rel="stylesheet" href="../css/alertify.rtl.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/bootstrap.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/bootstrap.rtl.min.css" /> -->
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
+    <!-- <link rel="stylesheet" href="../css/themes/default.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/default.rtl.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/semantic.min.css" /> -->
+    <!-- <link rel="stylesheet" href="../css/themes/semantic.rtl.min.css" /> -->
   </head>
   <body id="home">
     <header class="hero">
@@ -128,15 +138,67 @@
       <div class="gamecontainer">
         <div class="gamebox" id="gamebox1">
           <img src="./images/lottery.gif" height="100%" alt="lottery" />
+          Lottery
         </div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
-        <div class="gamebox"></div>
+        <div class="gamebox">Coming Soon</div>
+        <div class="gamebox">Coming Soon</div>
+        <div class="gamebox">Coming Soon</div>
+        <div class="gamebox">Coming Soon</div>
+        <div class="gamebox">Coming Soon</div>
       </div>
       <div class="dashboard">
         <h1>Dashboard</h1>
+        <div class="dashboardContainer">
+          <div class="dashboardheader">
+            <h2>Winners List</h2>
+          </div>
+          <div class="dashboardbody">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sr. No</th>
+                  <th>Address</th>
+                  <th>Game</th>
+                  <th>Time</th>
+                  <th>Winning Amount</th>
+                  <th>Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Sr. No">1</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 LEO</td>
+                  <td data-label="Fee">0.250205130 LEO</td>
+                </tr>
+                <tr>
+                  <td data-label="Sr. No">2</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 LEO</td>
+                  <td data-label="Fee">0.250205130 LEO</td>
+                </tr>
+                <tr>
+                  <td data-label="Sr. No">3</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 LEO</td>
+                  <td data-label="Fee">0.250205130 LEO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </main>
     <footer>
@@ -150,6 +212,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/web3.min.js"></script>
+    <script src="../js/alertify.js"></script>
     <script src="./js/dapp.js?v=1"></script>
     <script src="./js/main.js?v=1"></script>
   </body>
