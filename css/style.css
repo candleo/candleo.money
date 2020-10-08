@@ -431,7 +431,6 @@ main .stakeboard:hover {
   background-color: var(--bg2);
   color: var(--text);
   border: 2px solid var(--primary-text);
-  /* border-radius: 15px; */
   padding: 10px 20px;
   margin: 5px 10px;
   font-size: 1rem;
@@ -514,6 +513,7 @@ td {
 
 #NewStakerApprove:disabled,
 #OldStakerApprove:disabled {
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {

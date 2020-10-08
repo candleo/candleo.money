@@ -1930,17 +1930,35 @@ initContract = () => {
                   $("#NewStakerApprove").show();
                   $("#OldStakerApprove").show();
                   $("#NewStakerApprove").prop("disabled", true);
+                  $("#NewStakerApprove").css("cursor", "none");
                   $("#OldStakerApprove").prop("disabled", true);
+                  $("#NewStakerApprove").text("Cannot Approve");
+                  $("#approveNote").hide();
+                  $("#approveNoteZeroBalance").show();
+                  $("#StakeNote").hide();
+                  $("#StakeNote").hide();
                 } else if (+approvedAmount >= +myTokenBalance) {
                   $("#NewStakerApprove").hide();
                   $("#OldStakerApprove").hide();
                   $("#inputstake").show();
                   $("#inputstake").css("display", "flex");
+                  $("#approveNote").hide();
+                  $("#approveNoteZeroBalance").hide();
+                  $("#StakeNote").show();
+                  $("#NewStakerApprove").text("Approve");
+                  $("#NewStakerApprove").prop("disabled", false);
+                  $("#NewStakerApprove").css("cursor", "pointer");
                 } else {
                   $("#NewStakerApprove").show();
                   $("#OldStakerApprove").show();
                   $("#NewStakerApprove").prop("disabled", false);
                   $("#OldStakerApprove").prop("disabled", false);
+                  $("#approveNote").show();
+                  $("#approveNoteZeroBalance").hide();
+                  $("#StakeNote").hide();
+                  $("#NewStakerApprove").text("Approve");
+                  $("#NewStakerApprove").prop("disabled", false);
+                  $("#NewStakerApprove").css("cursor", "pointer");
                 }
               });
           });
@@ -2042,6 +2060,16 @@ $("#NewStakerApprove").click(async () => {
         // $("#approveBtn").find(".before-click").addClass("d-none");
         // $("#approveBtn").find(".after-click").removeClass("d-none");
       })
+      .on("error", function (error) {
+        // $("#approveBtn").attr("disabled", "");
+        // $("#approveBtn").find(".before-click").addClass("d-none");
+        // $("#approveBtn").find(".after-click").removeClass("d-none");
+        // console.log(error);
+        alertify.notify(error.message, "error", 5, function () {
+          // console.log("dismissed");
+        });
+      })
+
       .on("confirmation", function (confirmationNumber, receipt) {
         // $("#approveBtn").removeAttr("disabled");
         // $("#approveBtn").find(".after-click").addClass("d-none");
