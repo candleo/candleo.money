@@ -183,9 +183,9 @@ nav ul li a:hover,
   white-space: nowrap;
 }
 
-.walletconnect .connectWallet:hover {
-  /* border: 2px double var(--outline); */
-}
+/* .walletconnect .connectWallet:hover {
+  border: 2px double var(--outline);
+} */
 
 main {
   margin-top: 200px;
@@ -459,12 +459,12 @@ main .stakeboard:hover {
   height: 350px;
   /* text-align: ; */
 }
-
+/* 
 .main .rightbox h1 {
 }
 
 .main .rightbox p {
-}
+} */
 
 .main .rightbox button {
   background-color: var(--bg2);
@@ -624,7 +624,7 @@ td {
   }
 
   .walletconnect .network,
-  .walletconnect .connectWallet,
+  /* .walletconnect .connectWallet, */
   .walletconnect .addressname,
   .tokenBalance {
     margin: 5px 5px;
@@ -640,7 +640,7 @@ td {
 
   .walletconnect .connectWallet {
     cursor: pointer;
-    border: 2px double var(--text-danger);
+    /* border: 2px double var(--text-danger); */
     padding: 5px 5px;
     color: var(--text);
     white-space: nowrap;
@@ -694,7 +694,6 @@ td {
 }
 
 .bg-theme {
-  /* font-size: 72px; */
   background: -webkit-linear-gradient(yellow, green);
   background-clip: text;
   -webkit-background-clip: text;
@@ -702,10 +701,8 @@ td {
 }
 
 .module-border-wrap {
-  /* max-width: 250px; */
   padding: 2px;
   position: relative;
   background: linear-gradient(to bottom, yellow, green);
-  /* padding: 3px; */
   margin: 5px 10px;
 }
