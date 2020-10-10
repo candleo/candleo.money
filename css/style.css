@@ -92,6 +92,7 @@ p {
   /* margin-top: 10px; */
 }
 .text-primary a {
+  color: var(--text);
   /* color: var(--theme); */
   font-size: 40px;
   font-weight: bold;
