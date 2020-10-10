@@ -1,0 +1,34 @@
+#gamebox0 {
+  background: url(../images/graph.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+
+#gamebox1 {
+  background: url(../images/lottery.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox2 {
+  background: url(../images/giphy.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox3 {
+  background: url(../images/SolidBeautifulAnura-small.gif) no-repeat center
+    center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox4 {
+  background: url(../images/lTXepVrUf7XBoBGgzW.gif) no-repeat center
+    center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox5 {
+  background: url(../images/BelovedMadeupCockroach-size_restricted.gif)
+    no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
