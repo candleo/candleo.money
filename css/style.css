@@ -84,16 +84,21 @@ p {
 }
 
 .text-primary {
-  color: var(--theme);
+  /* color: var(--theme); */
+  color: var(--text);
   font-size: 40px;
   font-weight: bold;
   white-space: nowrap;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 .text-primary a {
   color: var(--theme);
   font-size: 40px;
   font-weight: bold;
+}
+.text-primary a img {
+  position: relative;
+  top: 9px;
 }
 
 nav ul {

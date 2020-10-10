@@ -2,12 +2,15 @@ let tokenabi, stakeabi, transactionURL;
 let tokenadd; //token contract address
 let stakeadd; //Stake contract address
 let net; //current network
-let accounts,stakingFee,UnstakingFee,RedeemFee,
+let accounts,
+  stakingFee,
+  UnstakingFee,
+  RedeemFee,
   stakeHolderAc,
   timestring,
   currentAccount,
   STAKINGCONTRACT,
-  _maxStatus="enable",
+  _maxStatus = "enable",
   XFICONTRACT,
   metamask,
   myTokenBalance,
@@ -23,13 +26,14 @@ metamaskIntegration = async () => {
     window.web3 = new Web3(window.ethereum);
     try {
       await window.ethereum.enable();
-      if(!currentAccount){
-      alertify.notify(
-        "Wallet Connected Successfully",
-        "success",
-        5,
-        function () {}
-      );}
+      if (!currentAccount) {
+        alertify.notify(
+          "Wallet Connected Successfully",
+          "success",
+          5,
+          function () {}
+        );
+      }
     } catch (error) {
       alertify.notify(
         error.message + " confirm from metamask/etheruem supported wallets",
@@ -62,12 +66,14 @@ metamaskIntegration = async () => {
     $("#stakedapp").css("display", "none");
   }
   // window.ethereum.on("accountsChanged", function (_accounts) {});
-  await web3.eth.getAccounts(function (error, result) {
-    if (!error) {
-      currentAccount = result[0];
-    } else console.error(error);
-  });
-  net = await web3.eth.net.getNetworkType();
+  if (window.ethereum) {
+    await web3.eth.getAccounts(function (error, result) {
+      if (!error) {
+        currentAccount = result[0];
+      } else console.error(error);
+    });
+    net = await web3.eth.net.getNetworkType();
+  }
 };
 
 if (window.ethereum) {
@@ -88,7 +94,7 @@ if (window.ethereum) {
     // $("#connectwallet").css("border", "2px double var(--text-danger)");
 
     //genrate request for wallet connection
-    
+
     initContract();
   });
   ethereum.on("chainChanged", (chainId) => {
@@ -2028,7 +2034,7 @@ initContract = () => {
             $("#stakingRate").text(
               "Staking Rate: " + stakingFeeRate1 / 100 + " %"
             );
-            stakingFee=stakingFeeRate1;
+            stakingFee = stakingFeeRate1;
           });
 
         //Reward Redemption Rate
@@ -2039,7 +2045,7 @@ initContract = () => {
             $("#redemptionRate").text(
               "Redemption Rate: " + rewardFeeRate1 / 100 + " %"
             );
-            RedeemFee=rewardFeeRate1;
+            RedeemFee = rewardFeeRate1;
           });
 
         //Unstaking Rate
@@ -2050,7 +2056,7 @@ initContract = () => {
             $("#unstakingRate").text(
               "Unstaking Rate: " + unstakingFeeRate1 / 100 + " %"
             );
-            UnstakingFee=unstakingFeeRate1;
+            UnstakingFee = unstakingFeeRate1;
           });
       }
     });
@@ -2059,9 +2065,9 @@ initContract = () => {
 $("#NewStakerApprove").click(async () => {
   if (currentAccount) {
     token.methods
-    // .approve(stakeadd, "300")
-    .approve(stakeadd, "30000000000000000000000")
-    .send({ from: currentAccount })
+      // .approve(stakeadd, "300")
+      .approve(stakeadd, "30000000000000000000000")
+      .send({ from: currentAccount })
       .on("transactionHash", function (hash) {
         // $("#approveBtn").attr("disabled", "");
         // $("#approveBtn").find(".before-click").addClass("d-none");
@@ -2069,9 +2075,11 @@ $("#NewStakerApprove").click(async () => {
         alertify.notify(hash, "success", 5, function () {
           // console.log("dismissed");
         });
-        $("#transHash").html(`Please wait while we confirm your transaction...you can also view on <a target=_blank href=\"${transactionURL}/tx/` +
-        hash +
-        `\">EtherScan</a><img  src="../images/loader.gif" />`);
+        $("#transHash").html(
+          `Please wait while we confirm your transaction...you can also view on <a target=_blank href=\"${transactionURL}/tx/` +
+            hash +
+            `\">EtherScan</a><img  src="../images/loader.gif" />`
+        );
       })
       .on("error", function (error) {
         // $("#approveBtn").attr("disabled", "");
@@ -2081,7 +2089,8 @@ $("#NewStakerApprove").click(async () => {
         alertify.notify(error.message, "error", 5, function () {
           // console.log("dismissed");
         });
-      }).on("confirmation", function (confirmationNumber, receipt) {
+      })
+      .on("confirmation", function (confirmationNumber, receipt) {
         // $("#approveBtn").removeAttr("disabled");
         // $("#approveBtn").find(".after-click").addClass("d-none");
         // $("#approveBtn").find(".before-click").removeClass("d-none");
@@ -2141,49 +2150,62 @@ $("#NewStakerNow").click(async () => {
   if (currentAccount) {
     if ($.trim($("#entered-value-stake").val()).length == 0) {
       // $("#msgArea").text("Kindly insert a valid token value");
-      alertify.notify("Can't Stake zero/invalid tokens value", "error", 5, function () {
-        // console.log("dismissed");
-      });
+      alertify.notify(
+        "Can't Stake zero/invalid tokens value",
+        "error",
+        5,
+        function () {
+          // console.log("dismissed");
+        }
+      );
     } else if (isNaN($("#entered-value-stake").val())) {
       // $("#msgArea").text("Kindly insert a valid token value");
-      alertify.notify("Please provide valid stake value", "error", 5, function () {
-        // console.log("dismissed");
-      });
-    }else{
+      alertify.notify(
+        "Please provide valid stake value",
+        "error",
+        5,
+        function () {
+          // console.log("dismissed");
+        }
+      );
+    } else {
       let gasprice = await web3.eth.getGasPrice();
       console.log(gasprice);
-    stake.methods
-      .stakeNow(web3.utils.toWei($("#entered-value-stake").val(), "ether"))
-      .send({ from: currentAccount , gasPrice: gasprice})
-      .on("transactionHash", function (hash) {
-        // $("#approveBtn").attr("disabled", "");
-        // $("#approveBtn").find(".before-click").addClass("d-none");
-        // $("#approveBtn").find(".after-click").removeClass("d-none");
-        $("#transHash").html(`Please wait while we confirm your transaction...you can also view on <a target=_blank href=\"${transactionURL}/tx/` +
-        hash +
-        `\">EtherScan</a><img  src="../images/loader.gif" />`);
-      })
-      .on("error", function (error) {
-        // $("#approveBtn").attr("disabled", "");
-        // $("#approveBtn").find(".before-click").addClass("d-none");
-        // $("#approveBtn").find(".after-click").removeClass("d-none");
-        // console.log(error);
-        alertify.notify(error.message, "error", 5, function () {
-          // console.log("dismissed");
+      stake.methods
+        .stakeNow(web3.utils.toWei($("#entered-value-stake").val(), "ether"))
+        .send({ from: currentAccount, gasPrice: gasprice })
+        .on("transactionHash", function (hash) {
+          // $("#approveBtn").attr("disabled", "");
+          // $("#approveBtn").find(".before-click").addClass("d-none");
+          // $("#approveBtn").find(".after-click").removeClass("d-none");
+          $("#transHash").html(
+            `Please wait while we confirm your transaction...you can also view on <a target=_blank href=\"${transactionURL}/tx/` +
+              hash +
+              `\">EtherScan</a><img  src="../images/loader.gif" />`
+          );
+        })
+        .on("error", function (error) {
+          // $("#approveBtn").attr("disabled", "");
+          // $("#approveBtn").find(".before-click").addClass("d-none");
+          // $("#approveBtn").find(".after-click").removeClass("d-none");
+          // console.log(error);
+          alertify.notify(error.message, "error", 5, function () {
+            // console.log("dismissed");
+          });
+        })
+        .on("confirmation", function (confirmationNumber, receipt) {
+          // $("#approveBtn").removeAttr("disabled");
+          // $("#approveBtn").find(".after-click").addClass("d-none");
+          // $("#approveBtn").find(".before-click").removeClass("d-none");
+          // $("#successModal").modal("show");
+          initContract();
+          $("#transHash").html(` `);
+          setTimeout(function () {
+            // $("#successModal").modal("hide");
+            // $("#btnStake").removeAttr("disabled");
+            // $("#approval-section").addClass("d-none");
+          }, 2000);
         });
-      }).on("confirmation", function (confirmationNumber, receipt) {
-        // $("#approveBtn").removeAttr("disabled");
-        // $("#approveBtn").find(".after-click").addClass("d-none");
-        // $("#approveBtn").find(".before-click").removeClass("d-none");
-        // $("#successModal").modal("show");
-        initContract();
-        $("#transHash").html(` `);
-        setTimeout(function () {
-          // $("#successModal").modal("hide");
-          // $("#btnStake").removeAttr("disabled");
-          // $("#approval-section").addClass("d-none");
-        }, 2000);
-      });
     }
   }
 });
@@ -2191,23 +2213,21 @@ $("#NewStakerNow").click(async () => {
 $("#maxBalanceToStake").click(() => {
   if (_maxStatus == "enable") {
     if (
-      $("#entered-value-stake").val() == web3.utils.fromWei(myTokenBalance, "ether")
+      $("#entered-value-stake").val() ==
+      web3.utils.fromWei(myTokenBalance, "ether")
     ) {
       $("#entered-value-stake").val("");
       $("#maxBalanceToStake").removeClass("maxOn");
       var amount = $("#entered-value-stake").val();
-      $("#calculatedFees").text(
-        (stakingFee * amount) / 10000
-      );
+      $("#calculatedFees").text((stakingFee * amount) / 10000);
     } else {
-      $("#entered-value-stake").val(web3.utils.fromWei(myTokenBalance, "ether"));
+      $("#entered-value-stake").val(
+        web3.utils.fromWei(myTokenBalance, "ether")
+      );
       $("#maxBalanceToStake").addClass("maxOn");
       var amount = $("#entered-value-stake").val();
-      $("#calculatedFees").text(
-        (stakingFee * amount) / 10000
-      );
+      $("#calculatedFees").text((stakingFee * amount) / 10000);
     }
-
   }
 });
 
@@ -2231,7 +2251,6 @@ $("#maxBalanceToStake").click(() => {
 //   }
 // });
 
-
 $("#entered-value-stake").on("input", () => {
   var amount = $("#entered-value-stake").val();
   $("#calculatedFees").text(
@@ -2247,8 +2266,6 @@ $("#entered-value-stake").on("input", () => {
 //     // web3.fromWei(myBalance, "ether")
 //   );
 // });
-
-
 
 function toDateTime(secs) {
   var t = new Date(1970, 0, 1); // Epoch
