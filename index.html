@@ -34,15 +34,15 @@
       crossorigin="anonymous"
     />
     <!-- <link rel="stylesheet" href="../css/alertify.min.css" /> -->
-    <link rel="stylesheet" href="../css/alertify.css" />
     <!-- <link rel="stylesheet" href="../css/alertify.rtl.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/bootstrap.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/bootstrap.rtl.min.css" /> -->
-    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
     <!-- <link rel="stylesheet" href="../css/themes/default.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/default.rtl.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/semantic.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/semantic.rtl.min.css" /> -->
+    <link rel="stylesheet" href="../css/alertify.css" />
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
     <link rel="stylesheet" href="/css/style.css?v=1" />
   </head>
   <body id="home">
@@ -50,7 +50,8 @@
       <div id="navbar" class="navbar">
         <h1 class="text-primary">
           <a href="./"
-            ><img
+            >
+            <!-- <img
               src="/favicon/logo.png"
               height="30px"
               style="vertical-align: -41px"
@@ -60,7 +61,8 @@
               src="./favicon/hummer2.png"
               alt="l"
               srcset=""
-            /><span>eo</span>
+            /><span>eo</span> -->
+            <img src="./images/logo.png"  height="40px" alt="Candleo.Money">
           </a>
         </h1>
 
@@ -125,8 +127,11 @@
         />
         <div class="walletandnetwork">
           <div class="network" id="netwrokID">Network: N/A</div>
-          <div class="connectWallet" id="connectwallet">
-            <i class="fa fa-circle text-danger"></i>Connect Wallet
+          <div class="module-border-wrap">
+
+            <div class="connectWallet" id="connectwallet">
+              <i class="fa fa-circle text-danger"></i>Connect Your Wallet
+            </div>
           </div>
         </div>
       </div>
@@ -136,15 +141,20 @@
         <h1>Games</h1>
       </div>
       <div class="gamecontainer">
-        <div class="gamebox" id="gamebox1">
-          <img src="./images/lottery.gif" height="100%" alt="lottery" />
-          Lottery
+        <div class="gamebox" id="gamebox0">
+          <!-- <img src="./images/lottery.gif" height="100%" alt="lottery" /> -->
+        
         </div>
-        <div class="gamebox">Coming Soon</div>
-        <div class="gamebox">Coming Soon</div>
-        <div class="gamebox">Coming Soon</div>
-        <div class="gamebox">Coming Soon</div>
-        <div class="gamebox">Coming Soon</div>
+        <div class="gamebox" id="gamebox1">
+          <!-- Lottery -->
+
+        </div>
+        <div class="gamebox" id="gamebox2"></div>
+        <div class="gamebox" id="gamebox3">
+          <div class="bg-theme">Coming Soon</div>
+          </div>
+        <div class="gamebox" id="gamebox4"></div>
+        <div class="gamebox" id="gamebox5"></div>
       </div>
       <div class="dashboard">
         <h1>Dashboard</h1>

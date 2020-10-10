@@ -85,7 +85,7 @@ if (window.ethereum) {
     $("#connectwallet").html(
       `<i class="fa fa-circle text-danger"></i>Connect Wallet`
     );
-    $("#connectwallet").css("border", "2px double var(--text-danger)");
+    // $("#connectwallet").css("border", "2px double var(--text-danger)");
 
     //genrate request for wallet connection
     
@@ -1901,7 +1901,7 @@ initContract = () => {
         $("#connectwallet").html(
           `<i class="fa fa-circle text-safe"></i>Connected`
         );
-        $("#connectwallet").css("border", "2px double var(--text-safe)");
+        // $("#connectwallet").css("border", "2px double var(--text-safe)");
       }
 
       if (net) {

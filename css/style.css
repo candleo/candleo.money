@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Gafata&family=Open+Sans:wght@300;400&display=swap");
 
 :root {
-  --bg: #1e1b18ff;
-  --bg2: #0a2463ff;
+  /* --bg: #1e1b18ff; */
+  /* --bg2: #0a2463ff; */
   --text: #fffaffff;
   /* --text: #ffffffff; */
   --primary-text: #d8315bff;
@@ -10,6 +10,10 @@
   --theme: #5aff15;
   --text-danger: #dc3545;
   --text-safe: #5aff15ff;
+
+  --bg: #0b0b0bff;
+  --bg2: #242424ff;
+  /* --theme: linear-gradient(yellow, green); */
 }
 
 *,
@@ -29,6 +33,7 @@ body {
   font-family: "Gafata", "Open Sans", sans-serif;
   line-height: 1.5;
   background-color: var(--bg2);
+  color: var(--text);
   /* opacity: 0.5; */
 }
 
@@ -61,9 +66,6 @@ p {
 
   margin-right: 10px;
 }
-/* .hero {
-  position: relative;
-} */
 
 .navbar {
   display: flex;
@@ -86,6 +88,7 @@ p {
   font-size: 40px;
   font-weight: bold;
   white-space: nowrap;
+  margin-top: 10px;
 }
 .text-primary a {
   color: var(--theme);
@@ -156,13 +159,15 @@ nav ul li a:hover,
 .walletconnect .address,
 .walletconnect .walletandnetwork {
   display: flex;
+  align-items: center;
 }
 
 .walletconnect .network,
 .walletconnect .connectWallet,
 .walletconnect .addressname {
-  margin: 5px 10px;
-  padding: 6px 15px;
+  /* margin: 5px 10px; */
+  /* padding: 6px 15px; */
+  background-color: var(--bg);
 }
 
 .walletconnect .addressvalue {
@@ -172,14 +177,14 @@ nav ul li a:hover,
 
 .walletconnect .connectWallet {
   cursor: pointer;
-  border: 2px double var(--text-danger);
+  /* border: 2px double var(--text-danger); */
   padding: 6px 15px;
   color: var(--text);
   white-space: nowrap;
 }
 
 .walletconnect .connectWallet:hover {
-  border: 2px double var(--outline);
+  /* border: 2px double var(--outline); */
 }
 
 main {
@@ -259,6 +264,40 @@ main .gamebox:hover {
   background-color: #252525;
   background-color: #1e1b18d5; */
   cursor: pointer;
+}
+#gamebox0 {
+  background: url(../images/graph.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+
+#gamebox1 {
+  background: url(../images/lottery.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox2 {
+  background: url(../images/giphy.gif) no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox3 {
+  background: url(../images/SolidBeautifulAnura-small.gif) no-repeat center
+    center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox4 {
+  background: url(../images/lTXepVrUf7XBoBGgzW.gif) no-repeat center
+    center/cover;
+  animation: none;
+  background-size: 100% 100%;
+}
+#gamebox5 {
+  background: url(../images/BelovedMadeupCockroach-size_restricted.gif)
+    no-repeat center center/cover;
+  animation: none;
+  background-size: 100% 100%;
 }
 
 .social-link-mobile-p {
@@ -652,4 +691,21 @@ td {
   .alertify-notifier .ajs-message {
     width: 90vw;
   }
+}
+
+.bg-theme {
+  /* font-size: 72px; */
+  background: -webkit-linear-gradient(yellow, green);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.module-border-wrap {
+  /* max-width: 250px; */
+  padding: 2px;
+  position: relative;
+  background: linear-gradient(to bottom, yellow, green);
+  /* padding: 3px; */
+  margin: 5px 10px;
 }
