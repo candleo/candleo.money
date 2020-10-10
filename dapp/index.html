@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stake - candleo.money</title>
+    <title>Stake - Candleo - Decentralized Finance</title>
 
     <!-- <link rel="apple-touch-icon" sizes="57x57" href="/favicon/57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="/favicon/60.png" />
@@ -33,7 +33,6 @@
       integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/style.css?v=1" />
     <!-- <link rel="stylesheet" href="../css/alertify.min.css" /> -->
     <link rel="stylesheet" href="../css/alertify.css" />
     <!-- <link rel="stylesheet" href="../css/alertify.rtl.min.css" /> -->
@@ -44,12 +43,13 @@
     <!-- <link rel="stylesheet" href="../css/themes/default.rtl.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/semantic.min.css" /> -->
     <!-- <link rel="stylesheet" href="../css/themes/semantic.rtl.min.css" /> -->
+    <link rel="stylesheet" href="../css/style.css?v=1" />
   </head>
   <body id="home">
     <header class="hero">
       <div id="navbar" class="navbar">
         <h1 class="text-primary">
-          <a href="index.html"
+          <a href="../"
             ><img
               src="../favicon/logo.png"
               height="30px"
@@ -67,9 +67,9 @@
         <nav>
           <ul>
             <li><a href="../">Home</a></li>
-            <li><a href="../dapp/#skate">Staking</a></li>
-            <li><a href="index.html#pool">Pool</a></li>
-            <li><a href="index.html#mine">Mine</a></li>
+            <li><a href="../dapp/#skate">Stake</a></li>
+            <!-- <li><a href="index.html#pool">Pool</a></li> -->
+            <!-- <li><a href="index.html#mine">Mine</a></li> -->
             <li><a href="index.html#presale">Presale</a></li>
             <li>
               <a
@@ -89,7 +89,7 @@
             alt="l"
             srcset=""
           />
-          <a href="http://" target="_blank" rel="noopener noreferrer">Github</a>
+          <a href="https://github.com/candleo" target="_blank" rel="noopener noreferrer">Github</a>
           <a href="http://" target="_blank" rel="noopener noreferrer"
             >Telegram</a
           >
@@ -199,19 +199,26 @@
                 contract. Click on approve button to start staking.
               </p>
               <p id="StakeNote">
-                Stake Before starting to stake your funds, you need to approve
-                staking contract. Click on approve button to start staking.
+                Congrats!!!, You are just one step away from staking. Please enter the amount of token you want to stake and then click on "Stake Now" button.
               </p>
               <button id="NewStakerApprove">Approve</button>
               <div class="inputstake" id="inputstake">
                 <div class="maxBalance" id="maxBalanceToStake">max</div>
                 <input
+                type="number"
                   autocomplete="off"
+                  min="0  "
                   id="entered-value-stake"
                   class="theme-color-btn-input"
                   placeholder="0.00"
                 />
                 <h3>LEO</h3>
+                <button id="NewStakerNow">Stake Now</button>
+              </div>
+              <div class="feecalculation">
+                <p><b> staking Fees: </b></p>
+                <div id="calculatedFees" class="calculatedFees">0</div>
+                <p>LEO</p>
               </div>
               <div class="productheader">
                 <div class="stakeBalance" id="stakingRate"></div>
@@ -230,6 +237,7 @@
                 />
                 <div class="lastactionTime" id="unstakingRate"></div>
               </div>
+              <div class="transactionhash" id="transHash"></div>
             </div>
           </div>
         </div>
