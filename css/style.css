@@ -82,6 +82,11 @@ p {
   overflow: hidden;
   z-index: 12;
 }
+.text-bg-dark {
+  /* display: inline-block; */
+  color: var(--text);
+  background-color: #33333330;
+}
 
 .text-primary {
   /* color: var(--theme); */
@@ -227,16 +232,16 @@ main .gamecontainerstake {
 main .gamebox {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   margin: 40px;
   width: 280px;
   height: 342px;
-  padding: 24px;
+  padding: 0 0 24px 0;
   background-color: var(--bg);
   border-radius: 8px;
   transition: all 0.2s ease;
   /* background-image: linear-gradient(to bottom right, red, green, yellow); */
-  background: linear-gradient(
+  /* background: linear-gradient(
     -45deg,
     #030303,
     #030303,
@@ -248,10 +253,10 @@ main .gamebox {
     #030303
   );
   animation: gradient 20s ease infinite;
-  background-size: 300% 300%;
+  background-size: 300% 300%; */
 }
 
-@keyframes gradient {
+/* @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -261,7 +266,7 @@ main .gamebox {
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 main .gamebox:hover {
   transform: scale(1.1);
@@ -270,6 +275,14 @@ main .gamebox:hover {
   background-color: #252525;
   background-color: #1e1b18d5; */
   cursor: pointer;
+}
+
+main .gamebox .pricePrediction {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .social-link-mobile-p {
