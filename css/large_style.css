@@ -10,13 +10,13 @@
   margin-bottom: -20px;
 }
 
-#gamebox1 {
+#gamebox3 {
   background: url(../images/lottery.gif) no-repeat center center/cover;
   animation: none;
   background-size: 100% 100%;
   /* color: var(--bg); */
 }
-#gamebox2 {
+#gamebox1 {
   background: url(../images/giphy.gif) no-repeat center center/cover;
   animation: none;
   background-size: 100% 100%;
@@ -27,7 +27,7 @@
   animation: none;  
   background-size: 100% 100%;
 } */
-#gamebox3 {
+#gamebox2 {
   background: url(../images/lTXepVrUf7XBoBGgzW.gif) no-repeat center
     center/cover;
   animation: none;
