@@ -11,7 +11,17 @@ If there are more than 1 individual whose predictions are correct then there wil
 
 ## Contract Addresses:
 
-COMING SOON
+**LEO Token**: [0x56f7c2a441ccac31bd9e2ee232677d9265be390f](https://etherscan.io/token/0x56f7c2a441ccac31bd9e2ee232677d9265be390f)
+
+**LEO Presale 1 Address**: [0x694Be13379ecD6bc09c02F7026d0F3C08D8cEE31](https://etherscan.io/address/0x694Be13379ecD6bc09c02F7026d0F3C08D8cEE31)
+
+Date : 20 October 2020
+Timing : coming soon
+
+**LEO Presale 2 Address**: [0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56](https://etherscan.io/address/0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56)
+
+Date : coming soon
+Timing : coming soon
 
 ## Tokenomics
 
