@@ -868,6 +868,22 @@ td {
   width: 100%;
 }
 
+.pricepredictdetails {
+  margin-left: 30px;
+}
+.pricepredictdetails H3 {
+  font-size: 24px;
+
+  margin: 10px 10px 10px 0;
+}
+.pricepredictdetails ol {
+  margin: 0 0 0 20px;
+}
+.pricepredictdetails ol li {
+  font-size: 18px;
+  margin: 5px 0 5px 0;
+}
+
 /* Participate Panel */
 
 .createParticipateForm {
