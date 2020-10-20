@@ -39,7 +39,16 @@ let scrolled = false;
 // });
 
 $("#connectwallet").click(() => {
-  initContract();
+  var themeElementbyHash = window.location.hash;
+  if (themeElementbyHash == "#pricepredict") {
+    initpriceContract(); // topFunction();
+  } else if (themeElementbyHash == "#stake") {
+    initContract();
+    // topFunction();
+  } else {
+    initContract();
+    // topFunction();
+  }
 });
 
 //  <i class="fa fa-circle text-danger"></i>Connect Wallet

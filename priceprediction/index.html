@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-180223693-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-180223693-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Price Prediction - Candleo | LEO Token</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="../favicon/57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="../favicon/60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="../favicon/72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../favicon/76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../favicon/114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../favicon/120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../favicon/144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../favicon/152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../favicon/180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../favicon/192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../favicon/32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../favicon/96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../favicon/16x16.png"
+    />
+    <meta
+      name="description"
+      content="Candleo.money is a Defi project that aims to transfer total control of money in individuals hand. The purpose of launching Candleo.money is that it simplifies Bitcoin and Ethereum price prediction. The Candleo platform will be used for games such as BTC price prediction, spin the wheel, etc."
+    />
+    <meta
+      name="keywords"
+      content="candleo.money, uniswap, BTC price Prediction, Stake, DEFI, defi, De-fi, Coingecko, CMC"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/alertify.css" />
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="../css/style.css?v=2" />
+  </head>
+  <body id="home">
+    <header class="hero">
+      <div id="navbar" class="navbar">
+        <h1 class="text-primary">
+          <a href="../">
+            <img
+              src="../favicon/logo.png"
+              height="40px"
+              alt="C"
+            />candleo.money</a
+          >
+        </h1>
+
+        <nav>
+          <ul>
+            <li><a href="../">Home</a></li>
+            <li><a href="../dapp/#skate">Stake</a></li>
+            <!-- <li><a href="index.html#pool">Pool</a></li> -->
+            <!-- <li><a href="index.html#mine">Mine</a></li> -->
+            <li>
+              <a
+                href="https://docs.candleo.money/#/README?id=tokenomics"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Presale</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://docs.candleo.money/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Docs</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <div class="social" id="social">
+          <img
+            src="../favicon/oie_PzqPgVxixUvw.png"
+            height="40"
+            alt="l"
+            srcset=""
+          />
+          <a
+            href="https://github.com/candleo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >
+          <a
+            href="https://t.me/Candleo_Money"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Telegram</a
+          >
+          <a
+            href="https://medium.com/@candleo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Medium</a
+          >
+          <a
+            href="https://twitter.com/CandleoMoney"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter</a
+          >
+        </div>
+      </div>
+      <div class="walletconnect" id="walletconnect">
+        <div class="address" id="address">
+          <div class="addressname" id="addressValue">
+            Address: Please connect your wallet first.
+          </div>
+          <!-- <div class="addressvalue" id="addressValue">
+            Please connect your wallet first.
+          </div> -->
+        </div>
+        <img
+          src="../favicon/oie_PzqPgVxixUvw.png"
+          height="30"
+          alt="l"
+          srcset=""
+        />
+        <div class="tokenContainer">
+          <div class="tokenBalance" id="tokenBalance">Balance: 0 LEO</div>
+        </div>
+        <img
+          src="../favicon/oie_PzqPgVxixUvw.png"
+          height="30"
+          alt="l"
+          srcset=""
+        />
+        <div class="walletandnetwork">
+          <div class="network" id="netwrokID">Network: N/A</div>
+          <div class="module-border-wrap">
+            <div class="connectWallet" id="connectwallet">
+              <i class="fa fa-circle text-danger"></i>Connect Your Wallet
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="main" id="MainPricePredict">
+      <div class="dashboard">
+        <h1>Price Prediction</h1>
+      </div>
+
+      <div class="gamecontainerstake" id="PricePredictDetails">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Price Prediction</h3>
+            <div class="trigger_popup_fricc" onclick="setmsghint(1)">
+              How To Play ?
+            </div>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader"></div>
+          <div class="productbody">
+            <div class="pricepredictdetails">
+              <h3>How to play:</h3>
+              Price Prediction: The model is pretty simple, the opening price of
+              4 hour candle at 4PM UTC daily will decide the winner. The Players
+              who wants to participate have to place their entry and amount to
+              particiapte 6 hours before. Players need to predict what will be
+              the opening price of candle at that time. The player who predicts
+              closest price will win the game. If there are more than 1
+              individual whose predictions are correct then there will be a
+              random selection of winner among them with the help of bot.
+            </div>
+            <!-- TradingView Widget BEGIN -->
+            <!-- <div class="tradingview-widget-container">
+              <div id="tradingview_fdce5"></div>
+              <div class="tradingview-widget-copyright">
+                <a
+                  href="https://uk.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE"
+                  rel="noopener"
+                  target="_blank"
+                  ><span class="blue-text">BTCUSDT Chart</span></a
+                >
+                by TradingView
+              </div>
+            </div> -->
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </div>
+      <div class="gamecontainerstake" id="PricePredict">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Predict BTC Price</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+            <!-- <p class="trigger_popup_fricc" onclick="setmsghint(1)">
+              How To Play ?
+            </p> -->
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_SelectDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateSearchID dashboardOptionbtn">Search Slot</div>
+            </div>
+            <!-- <div class="slotSelection">
+              <label for="slot">Select Slot:</label>
+              <select
+                id="availableGameSlot"
+                name="slot"
+                style="width: 20px; height: 50px"
+              >
+                <option value="-1">Select Slot</option>
+              </select>
+            </div> -->
+          </div>
+          <div class="productbody">
+            <div class="slotcontainer"></div>
+          </div>
+          <!-- <div class="msgFooter" id="btcpredictpricemsg"></div> -->
+          <div class="productbody">
+            <div class="slotselectionToparticipate">
+              <!-- <div class="participatepanel">
+                <div class="createParticipateForm">
+                  <div class="rowContainerParticipate">
+                    <div class="inputStyle">
+                      <div class="inputLabel">Selected Date:</div>
+                      <div id="gameSlot_SelectedDate">16-20-2020</div>
+                    </div>
+                    <div class="inputStyle">
+                      <div class="inputLabel">Slot No.:</div>
+                      <div id="gameSlot_SelectedSlot">1</div>
+                    </div>
+
+                    <div class="inputStyle">
+                      <div class="inputLabel">Prediction Fee (LEO):</div>
+
+                      <div id="gameSlot_SelectedAmount">10 LEO</div>
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="inputStyle">
+                      <div class="inputLabel">
+                        Place Prediction Price(upto 2 decimal):
+                      </div>
+                      <input
+                        type="number"
+                        autocomplete="off"
+                        min="0"
+                        step="0.01"
+                        pattern="^\d*(\.\d{0,2})?$"
+                        id="gameSlot_amountPrediction"
+                        class="theme-color-btn-input"
+                        placeholder="BTC predicting price"
+                      />
+                    </div>
+                    <div class="inputStyle currentBTCPrice">
+                      <div class="inputLabel BTCname">BTC/USDT:</div>
+                      <div class="BTCPrice"></div>
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="Transbtn participateApprovebtn">Approve</div>
+                    <div class="Transbtn btcpredictpriceSubmit">
+                      Place Your Price
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="msgFooter" id="btcpredictpricemsg"></div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div id="tradingview_fdce5"></div>
+            <div class="tradingview-widget-copyright">
+              <a
+                href="https://uk.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE"
+                rel="noopener"
+                target="_blank"
+                ><span class="blue-text">BTCUSDT Chart</span></a
+              >
+              by TradingView
+            </div>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PredictionHistory">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Your Game History</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_HistoryDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateHistoryID dashboardOptionbtn">Search Slot</div>
+            </div>
+          </div>
+          <div class="productbody">
+            <div class="slotHistorycontainer"></div>
+          </div>
+          <!-- <div class="productbody">
+            <div class="Historypanel">
+              <div class="HistorycontainerGrid">
+                <div class="slothistoryheader">
+                  <div class="historyheadercol yourPrediction">
+                    Your Prediction
+                  </div>
+                  <div class="historyheadercol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historyheadercol slotStatus">Slot Status</div>
+                  <div class="historyheadercol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historyheadercol actualValue">Actual Value</div>
+                </div>
+
+                <div class="slothistorybody">
+                  <div class="historybodycol yourPrediction">
+                    Your Prediction
+                  </div>
+                  <div class="historybodycol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historybodycol slotStatus">Slot Status</div>
+                  <div class="historybodycol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historybodycol actualValue">Actual Value</div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PredictionHistoryforAll">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Prediction of all Players</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_HistoryAllDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateHistoryAllID dashboardOptionbtn">Search Slot</div>
+            </div>
+          </div>
+          <div class="productbody">
+            <div class="slotHistoryAllcontainer"></div>
+          </div>
+          <!-- <div class="productbody">
+            <div class="Historypanel">
+              <div class="HistorycontainerGrid">
+                <div class="slothistoryheader">
+                  <div class="historyheadercol yourPosition">Reg. No</div>
+                  <div class="historyheadercol playersAddress">
+                    Player Address
+                  </div>
+                  <div class="historyheadercol yourPrediction">
+                    Player's Prediction
+                  </div>
+                  <div class="historyheadercol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historyheadercol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historyheadercol actualValue">Actual Value</div>
+                </div>
+
+                <div class="slothistorybody">
+                  <div class="historybodycol yourPosition">Reg. No</div>
+                  <div class="historybodycol playersAddress">
+                    Player Address
+                  </div>
+                  <div class="historybodycol yourPrediction">
+                    players Prediction
+                  </div>
+                  <div class="historybodycol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historybodycol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historybodycol actualValue">Actual Value</div>
+                </div>
+                <div class="slotselectionforWinner">
+                  <div class="winnerContainer">
+                    <div class="winnerheader"><h3>Winner Details</h3></div>
+                    <div class="playerdetails">
+                      <div class="playerAddress">
+                        <div class="playerAddresschild playerAddressTitle">
+                          Winner Address:
+                        </div>
+                        <div class="playerAddressChild playerAddressValue">
+                          Address:
+                        </div>
+                      </div>
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Tokens Won:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                    </div>
+                    <div class="playerdetails">
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Predicted Price:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Actual Price:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PricePredictOwner">
+        <div class="stakeboard onlyOwner">
+          <div class="containerTopHeader">
+            <h3>Owner Dashboard</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="dashboardOptions">
+            <div class="module-border-wrap">
+              <div class="createGameID dashboardOptionbtn">Create Game</div>
+            </div>
+            <div class="module-border-wrap">
+              <div class="selectWinnerID dashboardOptionbtn">Select Winner</div>
+            </div>
+            <div class="module-border-wrap">
+              <div class="refundID dashboardOptionbtn">
+                Refund For Invalid Game
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer creategamepanel">
+            <div class="Predictheader">
+              <h3>Create Game</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="createNewGame">Create Game</button>
+                </div>
+                <div class="msgFooter" id="createGameMsg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer selectWinnerpanel">
+            <div class="Predictheader">
+              <h3>Select Winner</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="selectWinnerSubmit">Choose Winner</button>
+                </div>
+                <div class="msgFooter" id="selectWinnerMsg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer refundpanel">
+            <div class="Predictheader">
+              <h3>Refund Panel</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="refundallSubmit">Refund All</button>
+                </div>
+                <div class="msgFooter" id="refundallMsg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <main class="main" id="PricePredictappdisconnected">
+      <div class="dashboard">
+        <h1>Please Connect Your Wallet First.</h1>
+      </div>
+    </main>
+
+    <footer>
+      <p class="social-link-mobile-p">
+        Copyright &copy; 2020 - Candleo (Token: LEO) <br />
+      </p>
+    </footer>
+    <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+        <div class="popupCloseButton">&times;</div>
+        <div id="popupMsg"></div>
+      </div>
+    </div>
+    <div class="overlay"><div class="lds-dual-ring"></div></div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/web3.min.js"></script>
+    <script src="../js/alertify.js"></script>
+    <script src="../js/jsfile/constants.js"></script>
+    <script src="../js/jsfile/functions.js"></script>
+    <script src="../js/jsfile/domelements.js"></script>
+    <script src="../js/main.js?v=2"></script>
+    <script src="../js/hintspopup.js"></script>
+    <!-- <script
+      type="text/javascript"
+      src="https://s3.tradingview.com/tv.js"
+    ></script> -->
+    <script type="text/javascript" src="../js/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        width: $(".productbody").innerWidth(),
+        height: 450,
+        symbol: "BINANCE:BTCUSDT",
+        interval: "240",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "uk",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: "tradingview_fdce5",
+      });
+    </script>
+  </body>
+</html>
