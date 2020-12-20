@@ -895,7 +895,7 @@ initpriceContract = () => {
           },
         ];
         // pricepredictadd = "0xBcBD34386aDC968ec3b24fCd7dDe817B26D7CCF5";
-        pricepredictadd = "0x84785965E83EEA965C4a21d1bE9c0f8C73cEC9E5";
+        pricepredictadd = "0xBd4b88D2D5905dbb2601c191d6BC3ceF7F0B524B";
 
         pricepredictabi = [
           {
@@ -943,7 +943,7 @@ initpriceContract = () => {
                 type: "bool",
               },
             ],
-            stateMutability: "nonpayable",
+            stateMutability: "payable",
             type: "function",
           },
           {
@@ -984,41 +984,6 @@ initpriceContract = () => {
             ],
             stateMutability: "nonpayable",
             type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "contract IERC20",
-                name: "token",
-                type: "address",
-              },
-              {
-                internalType: "address",
-                name: "_feesReceiver",
-                type: "address",
-              },
-            ],
-            stateMutability: "nonpayable",
-            type: "constructor",
-          },
-          {
-            anonymous: false,
-            inputs: [
-              {
-                indexed: true,
-                internalType: "address",
-                name: "previousOwner",
-                type: "address",
-              },
-              {
-                indexed: true,
-                internalType: "address",
-                name: "newOwner",
-                type: "address",
-              },
-            ],
-            name: "OwnershipTransferred",
-            type: "event",
           },
           {
             inputs: [
@@ -1066,12 +1031,42 @@ initpriceContract = () => {
           {
             inputs: [
               {
+                internalType: "address payable",
+                name: "_feesReceiver",
+                type: "address",
+              },
+            ],
+            stateMutability: "nonpayable",
+            type: "constructor",
+          },
+          {
+            anonymous: false,
+            inputs: [
+              {
+                indexed: true,
+                internalType: "address",
+                name: "previousOwner",
+                type: "address",
+              },
+              {
+                indexed: true,
+                internalType: "address",
+                name: "newOwner",
+                type: "address",
+              },
+            ],
+            name: "OwnershipTransferred",
+            type: "event",
+          },
+          {
+            inputs: [
+              {
                 internalType: "contract IERC20",
                 name: "_tokenAddr",
                 type: "address",
               },
               {
-                internalType: "address",
+                internalType: "address payable",
                 name: "_feesReceiver",
                 type: "address",
               },
@@ -1126,7 +1121,7 @@ initpriceContract = () => {
           {
             inputs: [
               {
-                internalType: "address",
+                internalType: "address payable",
                 name: "_winner",
                 type: "address",
               },
@@ -1159,6 +1154,13 @@ initpriceContract = () => {
                 type: "bool",
               },
             ],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "withdrawAnyEther",
+            outputs: [],
             stateMutability: "nonpayable",
             type: "function",
           },
@@ -1268,19 +1270,6 @@ initpriceContract = () => {
           },
           {
             inputs: [],
-            name: "feesReceiver",
-            outputs: [
-              {
-                internalType: "address",
-                name: "",
-                type: "address",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [],
             name: "gamefee",
             outputs: [
               {
@@ -1348,7 +1337,7 @@ initpriceContract = () => {
                 type: "uint256",
               },
               {
-                internalType: "address",
+                internalType: "address payable",
                 name: "winner",
                 type: "address",
               },
@@ -1476,13 +1465,18 @@ initpriceContract = () => {
       // console.log(currentDate);
       //Token Balance
       if (currentAccount) {
+        web3.eth.getBalance(currentAccount).then((data) => {
+          $("#tokenBalance").text(
+            "Balance: " + web3.utils.fromWei(data, "ether") + " ETH"
+          );
+        });
         token.methods
           .balanceOf(currentAccount)
           .call()
           .then((balance) => {
-            $("#tokenBalance").text(
-              "Balance: " + web3.utils.fromWei(balance, "ether") + " LEO"
-            );
+            // $("#tokenBalance").text(
+            //   "Balance: " + web3.utils.fromWei(balance, "ether") + " LEO"
+            // );
             myTokenBalance = balance;
           })
           .then(() => {
@@ -1648,7 +1642,7 @@ defaultSlotSelection = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in LEO)
+      (in ETH)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -1667,7 +1661,7 @@ defaultSlotSelection = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlot[i]["amount"],
             "ether"
-          )} LEO</div>
+          )} ETH</div>
           <div class="minplayer slotbodychild">${GameSlot[i]["minPlayer"]}</div>
           <div class="maxplayer slotbodychild">${
             GameSlot[i]["PlayerLimit"]
@@ -1753,12 +1747,12 @@ participategetByID = async (_slot) => {
                       </div>
   
                       <div class="inputStyle">
-                        <div class="inputLabel">Prediction Fee (LEO):</div>
+                        <div class="inputLabel">Prediction Fee (ETH):</div>
   
                         <div id="gameSlot_SelectedAmount">${web3.utils.fromWei(
                           GameSlot[_slot]["amount"],
                           "ether"
-                        )} LEO</div>
+                        )} ETH</div>
                       </div>
                     </div>
                     <div class="rowContainerParticipate">
@@ -1794,21 +1788,21 @@ participategetByID = async (_slot) => {
                   </div>
                 </div>
       `);
-      if (+approvedAmount == "0") {
-        $(".isTransApproved").show();
-        $(".TransApproved").hide();
-      } else if (+approvedAmount >= +myTokenBalance) {
-        //write condition for start playing
-        $(".isTransApproved").hide();
-        $(".TransApproved").show();
-        $(`#btcpredictpricemsg${_slot}`).html(
-          "Almost there! Your are just one step away, Click on Submit Button to place your Predicted Price"
-        );
-      } else {
-        //need to approve first to start playing isTransApproved
-        $(".isTransApproved").show();
-        $(".TransApproved").hide();
-      }
+      // if (+approvedAmount == "0") {
+      //   $(".isTransApproved").show();
+      //   $(".TransApproved").hide();
+      // } else if (+approvedAmount >= +myTokenBalance) {
+      //write condition for start playing
+      $(".isTransApproved").hide();
+      $(".TransApproved").show();
+      $(`#btcpredictpricemsg${_slot}`).html(
+        "Almost there! Your are just one step away, Click on Submit Button to place your Predicted Price"
+      );
+      // } else {
+      //   //need to approve first to start playing isTransApproved
+      //   $(".isTransApproved").show();
+      //   $(".TransApproved").hide();
+      // }
     }
     //for hide
     else {
@@ -1899,7 +1893,11 @@ BTCPricePredictContact = async (_slot) => {
             _slot,
             parseInt($(`#gameSlot_amountPrediction${_slot}`).val() * 10000)
           )
-          .send({ from: currentAccount, gasPrice: gasprice })
+          .send({
+            from: currentAccount,
+            gasPrice: gasprice,
+            value: GameSlot[_slot].amount,
+          })
           .on("transactionHash", function (hash) {
             // $("#approveBtn").attr("disabled", "");
             // $("#approveBtn").find(".before-click").addClass("d-none");
@@ -2022,7 +2020,7 @@ HistorySlotSelection = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in LEO)
+      (in ETH)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -2041,7 +2039,7 @@ HistorySlotSelection = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlotHistory[i]["amount"],
             "ether"
-          )} LEO</div>
+          )} ETH</div>
           <div class="minplayer slotbodychild">${
             GameSlotHistory[i]["minPlayer"]
           }</div>
@@ -2209,7 +2207,7 @@ GameHistoryAllgetByID = async (_slot) => {
           <div class="playerValueChild playerValue">${web3.utils.fromWei(
             GameSlotHistoryAll[_slot]["amountWon"],
             "ether"
-          )} LEO</div>
+          )} ETH</div>
         </div>
       </div>
       <div class="playerdetails">
@@ -2278,7 +2276,7 @@ HistorySlotSelectionAll = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in LEO)
+      (in ETH)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -2316,7 +2314,7 @@ HistorySlotSelectionAll = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlotHistoryAll[ihs]["amount"],
             "ether"
-          )} LEO</div>
+          )} ETH</div>
           <div class="minplayer slotbodychild">${
             GameSlotHistoryAll[ihs]["minPlayer"]
           }</div>
