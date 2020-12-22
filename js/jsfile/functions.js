@@ -895,7 +895,7 @@ initpriceContract = () => {
           },
         ];
         // pricepredictadd = "0xBcBD34386aDC968ec3b24fCd7dDe817B26D7CCF5";
-        pricepredictadd = "0xBd4b88D2D5905dbb2601c191d6BC3ceF7F0B524B";
+        pricepredictadd = "0xa7bc3B4A284e5a521F3c7B6d00D0655Cf4EBA1EE";
 
         pricepredictabi = [
           {
