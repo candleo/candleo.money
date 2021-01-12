@@ -166,6 +166,11 @@ initContract = () => {
         `<i class="fa fa-circle text-safe"></i>Connected`
       );
       // $("#connectwallet").css("border", "2px double var(--text-safe)");
+      web3.eth.getBalance(currentAccount).then((data) => {
+        $("#tokenBalance").text(
+          "Balance: " + web3.utils.fromWei(data, "ether") + " ETH"
+        );
+      });
     }
 
     if (net) {
@@ -895,7 +900,8 @@ initpriceContract = () => {
           },
         ];
         // pricepredictadd = "0xBcBD34386aDC968ec3b24fCd7dDe817B26D7CCF5";
-        pricepredictadd = "0xa7bc3B4A284e5a521F3c7B6d00D0655Cf4EBA1EE";
+        // pricepredictadd = "0xa7bc3B4A284e5a521F3c7B6d00D0655Cf4EBA1EE";
+        pricepredictadd = "0xD07E0E702242782EcA8221Aaec9C5f72039560e2";
 
         pricepredictabi = [
           {
