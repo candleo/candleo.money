@@ -29,7 +29,7 @@ if (window.ethereum) {
     }
     // initContract();
     if (net == "main") {
-      $("#home").html("<h1>Please Switch to Ropsten Networt</h1>");
+      // $("#home").html("<h1>Please Switch to Ropsten Networt</h1>");
     } else if (net == "ropsten") {
     }
   });
