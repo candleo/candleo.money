@@ -1456,8 +1456,13 @@ body.loading .overlay {
 .part-one {
   font-size: 50px !important;
 }
-.part-one h1 {
+/* .part-one h1 {
   background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+.part-one h1 {
+  background: -webkit-linear-gradient(yellow, green);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
