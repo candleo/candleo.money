@@ -56,7 +56,7 @@
 
     <link rel="stylesheet" href="../css/alertify.css" />
     <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
-    <link rel="stylesheet" href="./css/style.css?v=1.04" />
+    <link rel="stylesheet" href="./css/style.css?v=1.06" />
     <link
       rel="preload"
       href="./css/large_style.css?v=2"
@@ -188,6 +188,570 @@
       </video> -->
       <!-- <img id="myVideo" src="./images/chart.gif" alt="" /> -->
     </main>
+    <main class="main" id="MainPricePredict">
+      <!-- <div class="dashboard">
+        <h1>Price Prediction</h1>
+      </div> -->
+
+      <div class="gamecontainerstake" id="PricePredictDetails">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Price Prediction</h3>
+            <div class="trigger_popup_fricc" onclick="setmsghint(1)">
+              How To Play ?
+            </div>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader"></div>
+          <div class="productbody">
+            <div class="pricepredictdetails">
+              <h3>How to play:</h3>
+              <ol>
+                <li>
+                  Opening price of 4 hour candle of BTC at 4 PM UTC will decide
+                  the winner of the session.
+                </li>
+                <li>
+                  To participate you need to select the slot under which you
+                  want to play according to your risk appetite.
+                </li>
+                <li>
+                  Now you need to click on participate. After that now need to
+                  predict the price of BTC .
+                </li>
+                <li>After this approve and submit the prediction.</li>
+                <li>
+                  All the participants can see the predictions placed by other
+                  participant when the slot closed down for prediction. This is
+                  to ensure fairness in the game.
+                </li>
+                <li>
+                  If more than one participant predict the same price then
+                  winner will be selected randomly with the help of lottery
+                  software.
+                </li>
+                <li>Participants can check the history of each game.</li>
+              </ol>
+            </div>
+            <!-- TradingView Widget BEGIN -->
+            <!-- <div class="tradingview-widget-container">
+              <div id="tradingview_fdce5"></div>
+              <div class="tradingview-widget-copyright">
+                <a
+                  href="https://uk.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE"
+                  rel="noopener"
+                  target="_blank"
+                  ><span class="blue-text">BTCUSDT Chart</span></a
+                >
+                by TradingView
+              </div>
+            </div> -->
+            <!-- TradingView Widget END -->
+          </div>
+        </div>
+      </div>
+      <div class="gamecontainerstake" id="PricePredict">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Predict BTC Price</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+            <!-- <p class="trigger_popup_fricc" onclick="setmsghint(1)">
+              How To Play ?
+            </p> -->
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_SelectDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateSearchID dashboardOptionbtn">Search Slot</div>
+            </div>
+            <!-- <div class="slotSelection">
+              <label for="slot">Select Slot:</label>
+              <select
+                id="availableGameSlot"
+                name="slot"
+                style="width: 20px; height: 50px"
+              >
+                <option value="-1">Select Slot</option>
+              </select>
+            </div> -->
+          </div>
+          <div class="productbody">
+            <div class="slotcontainer"></div>
+          </div>
+          <!-- <div class="msgFooter" id="btcpredictpricemsg"></div> -->
+          <div class="productbody">
+            <div class="slotselectionToparticipate">
+              <!-- <div class="participatepanel">
+                <div class="createParticipateForm">
+                  <div class="rowContainerParticipate">
+                    <div class="inputStyle">
+                      <div class="inputLabel">Selected Date:</div>
+                      <div id="gameSlot_SelectedDate">16-20-2020</div>
+                    </div>
+                    <div class="inputStyle">
+                      <div class="inputLabel">Slot No.:</div>
+                      <div id="gameSlot_SelectedSlot">1</div>
+                    </div>
+
+                    <div class="inputStyle">
+                      <div class="inputLabel">Prediction Fee (LEO):</div>
+
+                      <div id="gameSlot_SelectedAmount">10 LEO</div>
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="inputStyle">
+                      <div class="inputLabel">
+                        Place Prediction Price(upto 2 decimal):
+                      </div>
+                      <input
+                        type="number"
+                        autocomplete="off"
+                        min="0"
+                        step="0.01"
+                        pattern="^\d*(\.\d{0,2})?$"
+                        id="gameSlot_amountPrediction"
+                        class="theme-color-btn-input"
+                        placeholder="BTC predicting price"
+                      />
+                    </div>
+                    <div class="inputStyle currentBTCPrice">
+                      <div class="inputLabel BTCname">BTC/USDT:</div>
+                      <div class="BTCPrice"></div>
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="Transbtn participateApprovebtn">Approve</div>
+                    <div class="Transbtn btcpredictpriceSubmit">
+                      Place Your Price
+                    </div>
+                  </div>
+                  <div class="rowContainerParticipate">
+                    <div class="msgFooter" id="btcpredictpricemsg"></div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div id="tradingview_fdce5"></div>
+            <div class="tradingview-widget-copyright">
+              <a
+                href="https://uk.tradingview.com/symbols/BTCUSDT/?exchange=BINANCE"
+                rel="noopener"
+                target="_blank"
+                ><span class="blue-text">BTCUSDT Chart</span></a
+              >
+              by TradingView
+            </div>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PredictionHistory">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Your Game History</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_HistoryDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateHistoryID dashboardOptionbtn">Search Slot</div>
+            </div>
+          </div>
+          <div class="productbody">
+            <div class="slotHistorycontainer"></div>
+          </div>
+          <!-- <div class="productbody">
+            <div class="Historypanel">
+              <div class="HistorycontainerGrid">
+                <div class="slothistoryheader">
+                  <div class="historyheadercol yourPrediction">
+                    Your Prediction
+                  </div>
+                  <div class="historyheadercol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historyheadercol slotStatus">Slot Status</div>
+                  <div class="historyheadercol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historyheadercol actualValue">Actual Value</div>
+                </div>
+
+                <div class="slothistorybody">
+                  <div class="historybodycol yourPrediction">
+                    Your Prediction
+                  </div>
+                  <div class="historybodycol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historybodycol slotStatus">Slot Status</div>
+                  <div class="historybodycol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historybodycol actualValue">Actual Value</div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PredictionHistoryforAll">
+        <div class="stakeboard">
+          <div class="containerTopHeader">
+            <h3>Prediction of all Players</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="Predictheader">
+            <div class="dateSelection">
+              <label for="Date">Select Date:</label>
+              <input
+                type="date"
+                autocomplete="off"
+                name="Date"
+                id="gameSlot_HistoryAllDate"
+                class="theme-color-btn-input"
+              />
+            </div>
+            <div class="module-border-wrap">
+              <div class="DateHistoryAllID dashboardOptionbtn">Search Slot</div>
+            </div>
+          </div>
+          <div class="productbody">
+            <div class="slotHistoryAllcontainer"></div>
+          </div>
+          <!-- <div class="productbody">
+            <div class="Historypanel">
+              <div class="HistorycontainerGrid">
+                <div class="slothistoryheader">
+                  <div class="historyheadercol yourPosition">Reg. No</div>
+                  <div class="historyheadercol playersAddress">
+                    Player Address
+                  </div>
+                  <div class="historyheadercol yourPrediction">
+                    Player's Prediction
+                  </div>
+                  <div class="historyheadercol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historyheadercol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historyheadercol actualValue">Actual Value</div>
+                </div>
+
+                <div class="slothistorybody">
+                  <div class="historybodycol yourPosition">Reg. No</div>
+                  <div class="historybodycol playersAddress">
+                    Player Address
+                  </div>
+                  <div class="historybodycol yourPrediction">
+                    players Prediction
+                  </div>
+                  <div class="historybodycol predictionTime">
+                    Prediction Time
+                  </div>
+                  <div class="historybodycol winningPrediction">
+                    Winning Prediction
+                  </div>
+                  <div class="historybodycol actualValue">Actual Value</div>
+                </div>
+                <div class="slotselectionforWinner">
+                  <div class="winnerContainer">
+                    <div class="winnerheader"><h3>Winner Details</h3></div>
+                    <div class="playerdetails">
+                      <div class="playerAddress">
+                        <div class="playerAddresschild playerAddressTitle">
+                          Winner Address:
+                        </div>
+                        <div class="playerAddressChild playerAddressValue">
+                          Address:
+                        </div>
+                      </div>
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Tokens Won:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                    </div>
+                    <div class="playerdetails">
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Predicted Price:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                      <div class="playerAddress">
+                        <div class="playerValuechild playerTitle">
+                          Actual Price:
+                        </div>
+                        <div class="playerValueChild playerValue">Value</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="gamecontainerstake" id="PricePredictOwner">
+        <div class="stakeboard onlyOwner">
+          <div class="containerTopHeader">
+            <h3>Owner Dashboard</h3>
+            <div>This Project is in Beta. Use at your own risk</div>
+          </div>
+          <div class="dashboardOptions">
+            <div class="module-border-wrap">
+              <div class="createGameID dashboardOptionbtn">Create Game</div>
+            </div>
+            <div class="module-border-wrap">
+              <div class="selectWinnerID dashboardOptionbtn">Select Winner</div>
+            </div>
+            <div class="module-border-wrap">
+              <div class="refundID dashboardOptionbtn">
+                Refund For Invalid Game
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer creategamepanel">
+            <div class="Predictheader">
+              <h3>Create Game</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="createNewGame">Create Game</button>
+                </div>
+                <div class="msgFooter" id="createGameMsg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer selectWinnerpanel">
+            <div class="Predictheader">
+              <h3>Select Winner</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="selectWinnerSubmit">Choose Winner</button>
+                </div>
+                <div class="msgFooter" id="selectWinnerMsg"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dashboardOptionsContainer refundpanel">
+            <div class="Predictheader">
+              <h3>Refund Panel</h3>
+            </div>
+
+            <div class="productbody">
+              <div class="createGameForm">
+                <div class="inputStyle">
+                  <div class="inputLabel">No. of Tokens (LEO):</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_amount"
+                    class="theme-color-btn-input"
+                    placeholder="_amount"
+                  />
+                </div>
+
+                <div class="inputStyle">
+                  <div class="inputLabel">Players Limit:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_PlayerLimit"
+                    class="theme-color-btn-input"
+                    placeholder="_PlayerLimit"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Game Date:</div>
+                  <input
+                    type="date"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_playdate"
+                    class="theme-color-btn-input"
+                    placeholder="_playdate"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Minimum Players:</div>
+                  <input
+                    type="number"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_minPlayerCount"
+                    class="theme-color-btn-input"
+                    placeholder="_minPlayerCount"
+                  />
+                </div>
+                <div class="inputStyle">
+                  <div class="inputLabel">Bid Closing Time:</div>
+                  <input
+                    type="datetime-local"
+                    autocomplete="off"
+                    min="0"
+                    id="gameSlot_bidBefore"
+                    class="theme-color-btn-input"
+                    placeholder="_bidBefore"
+                  />
+                </div>
+                <div class="createNewGame">
+                  <button id="refundallSubmit">Refund All</button>
+                </div>
+                <div class="msgFooter" id="refundallMsg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- <div class="dashboard">
         <h1>Games</h1>
@@ -280,6 +844,15 @@
         Copyright &copy; 2020 - Candleo (Token: LEO) <br />
       </p>
     </footer>
+    <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+        <div class="popupCloseButton">&times;</div>
+        <div id="popupMsg"></div>
+      </div>
+    </div>
+    <div class="overlay"><div class="lds-dual-ring"></div></div>
+
     <script src="../js/jquery.min.js"></script>
     <script src="../js/web3.min.js"></script>
     <script src="../js/alertify.js"></script>
@@ -289,5 +862,22 @@
     <script src="../js/main.js?v=2"></script>
     <script src="../js/hintspopup.js"></script>
     <script src="./js/pixel_gradient.js"></script>
+    <script type="text/javascript" src="../js/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        width: $(".productbody").innerWidth(),
+        height: 450,
+        symbol: "BINANCE:BTCUSDT",
+        interval: "240",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "uk",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: "tradingview_fdce5",
+      });
+    </script>
   </body>
 </html>
