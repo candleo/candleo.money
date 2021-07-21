@@ -1436,8 +1436,8 @@ body.loading .overlay {
 /* New 20-07 */
 
 .hero1 {
-  width: 100vw;
-  height: 100vh;
+  /* width: 100vw; */
+  /* height: 100vh; */
 }
 .flex-container {
   display: flex;
