@@ -1456,6 +1456,11 @@ body.loading .overlay {
 .part-one {
   font-size: 50px !important;
 }
+.part-one h1 {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .part-two img {
   width: 70%;
