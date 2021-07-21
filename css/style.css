@@ -170,8 +170,8 @@ body {
 
   line-height: 1.5;
   /* background-color: var(--bg2); */
-  background-color: rgb(146, 146, 146);
-  background-color: black;
+  /* background-color: rgb(146, 146, 146); */
+  /* background-color: black; */
   color: var(--text);
   /* opacity: 0.5; */
   overflow-x: hidden;
@@ -1438,6 +1438,7 @@ body.loading .overlay {
 .hero1 {
   /* width: 100vw; */
   /* height: 100vh; */
+  z-index: 1;
 }
 .flex-container {
   display: flex;
@@ -1462,9 +1463,10 @@ body.loading .overlay {
   -webkit-text-fill-color: transparent;
 } */
 .part-one h1 {
-  background: -webkit-linear-gradient(yellow, green);
+  background: -webkit-linear-gradient(-131deg, yellow, green);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
 
 .part-two img {
@@ -1504,4 +1506,9 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+canvas {
+  position: fixed;
+  top: 0px;
+  left: 0px;
 }
