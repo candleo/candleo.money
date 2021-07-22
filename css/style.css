@@ -1030,6 +1030,7 @@ td {
   border-style: solid;
   border-image: linear-gradient(to right, yellow, green) 100% 1;
   border-top: none;
+  text-transform: uppercase;
 }
 .pricepredictdetails p {
   font-size: 18px;
