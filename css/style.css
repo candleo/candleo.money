@@ -1024,6 +1024,9 @@ td {
 
   margin: 10px 10px 10px 0;
 }
+.pricepredictdetails p {
+  font-size: 18px;
+}
 .pricepredictdetails ol {
   margin: 0 0 0 20px;
 }
