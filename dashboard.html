@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-180223693-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-180223693-1");
+    </script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candleo | LEO Token</title>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="./favicon/57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="./favicon/60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="./favicon/72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./favicon/76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="./favicon/114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="./favicon/144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="./favicon/152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/180x180.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./favicon/192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon/96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/16x16.png" />
+
+    <meta
+      name="description"
+      content="Candleo.money is a Defi project that aims to transfer total control of money in individuals hand. The purpose of launching Candleo.money is that it simplifies Bitcoin and Ethereum price prediction. The Candleo platform will be used for games such as BTC price prediction, spin the wheel, etc."
+    />
+    <meta
+      name="keywords"
+      content="candleo.money, uniswap, BTC price Prediction, Stake, DEFI, defi, De-fi, Coingecko, CMC"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="../css/alertify.css" />
+    <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
+    <link rel="stylesheet" href="./css/style.css?v=1.10" />
+    <link
+      rel="preload"
+      href="./css/large_style.css?v=2"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+
+    <noscript>
+      <link rel="stylesheet" href="./css/large_style.css?v=2" />
+    </noscript>
+  </head>
+  <body id="home">
+    <header class="hero">
+      <div id="navbar" class="navbar">
+        <h1 class="text-primary">
+          <a href="./">
+            <img
+              src="./favicon/logo.png"
+              height="40px"
+              alt="logo"
+            />candleo.money</a
+          >
+        </h1>
+
+        <nav>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <!-- <li><a href="./dapp/#skate">Stake</a></li> -->
+            <!-- <li>
+              <a
+                href="https://docs.candleo.money/#/README?id=tokenomics"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Presale</a
+              >
+            </li> -->
+            <li>
+              <a
+                href="https://docs.candleo.money/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Docs</a
+              >
+            </li>
+            <li><a href="./dashboard">Dashboard</a></li>
+          </ul>
+        </nav>
+        <img
+          src="./favicon/oie_PzqPgVxixUvw.png"
+          height="40"
+          alt="l"
+          srcset=""
+        />
+        <div class="social" id="social">
+          <a
+            href="https://github.com/candleo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Github</a
+          >
+          <a
+            href="https://t.me/Candleo_Money"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Telegram</a
+          >
+          <a
+            href="https://medium.com/@candleo"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Medium</a
+          >
+          <a
+            href="https://twitter.com/CandleoMoney"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter</a
+          >
+        </div>
+      </div>
+      <div class="walletconnect" id="walletconnect">
+        <div class="address" id="address">
+          <div class="addressname" id="addressValue">
+            Address: Please connect your wallet first.
+          </div>
+        </div>
+        <img
+          src="./favicon/oie_PzqPgVxixUvw.png"
+          height="30"
+          alt="l"
+          srcset=""
+        />
+        <div class="tokenContainer">
+          <div class="tokenBalance" id="tokenBalance">Balance: 0 ETH</div>
+        </div>
+        <img
+          src="./favicon/oie_PzqPgVxixUvw.png"
+          height="30"
+          alt="l"
+          srcset=""
+        />
+        <div class="walletandnetwork">
+          <div class="network" id="netwrokID">Network: N/A</div>
+          <div class="module-border-wrap">
+            <div class="connectWallet" id="connectwallet">
+              <i class="fa fa-circle text-danger"></i>Connect Your Wallet
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="dashboard">
+        <h1>Games</h1>
+      </div>
+      <div class="gamecontainer">
+        <a href="./priceprediction/#pricepredict">
+          <div class="gamebox" id="gamebox0">
+            <div class="pricePrediction">
+              <h1 class="text-bg-dark">Price Prediction</h1>
+              <h2 class="text-bg-dark">Coming Soon</h2>
+            </div>
+          </div>
+        </a>
+        <div class="gamebox" id="gamebox1">
+          <div class="pricePrediction">
+            <h1 class="text-bg-dark">Demo</h1>
+            <h2 class="text-bg-dark">Coming Soon</h2>
+          </div>
+        </div>
+        <div class="gamebox" id="gamebox2">
+          <div class="pricePrediction">
+            <h1 class="text-bg-dark">Demo</h1>
+            <h2 class="text-bg-dark">Coming Soon</h2>
+          </div>
+        </div>
+        <div class="gamebox" id="gamebox3">
+          <div class="pricePrediction">
+            <h1 class="text-bg-dark">Demo</h1>
+            <h2 class="text-bg-dark">Coming Soon</h2>
+          </div>
+        </div>
+      </div>
+      <div class="dashboard">
+        <h1>Dashboard</h1>
+        <div class="dashboardContainer">
+          <div class="dashboardheader">
+            <h2>Winners List - Test Data</h2>
+          </div>
+          <div class="dashboardbody">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sr. No</th>
+                  <th>Address</th>
+                  <th>Game</th>
+                  <th>Time</th>
+                  <th>Winning Amount</th>
+                  <th>Fee</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Sr. No">1</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 ETH</td>
+                  <td data-label="Fee">0.250205130 ETH</td>
+                </tr>
+                <tr>
+                  <td data-label="Sr. No">2</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 ETH</td>
+                  <td data-label="Fee">0.250205130 ETH</td>
+                </tr>
+                <tr>
+                  <td data-label="Sr. No">3</td>
+                  <td data-label="Address">
+                    0xb41d68s41e68fh1b465sg6r4s68svf14g4
+                  </td>
+                  <td data-label="Game">Lottery</td>
+                  <td data-label="Time">time in UTC time in UTC</td>
+                  <td data-label="Reward">150.024185245 ETH</td>
+                  <td data-label="Fee">0.250205130 ETH</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="social-link-mobile-p">
+        Copyright &copy; 2020 - Candleo (Token: LEO) <br />
+      </p>
+    </footer>
+    <div class="hover_bkgr_fricc">
+      <span class="helper"></span>
+      <div>
+        <div class="popupCloseButton">&times;</div>
+        <div id="popupMsg"></div>
+      </div>
+    </div>
+    <div class="overlay"><div class="lds-dual-ring"></div></div>
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/web3.min.js"></script>
+    <script src="../js/alertify.js"></script>
+    <script src="../js/jsfile/constants.js?v=1.04"></script>
+    <script src="../js/jsfile/functions.js?v=1.04"></script>
+    <script src="../js/jsfile/domelements.js?v=1.04"></script>
+    <script src="../js/main.js?v=2"></script>
+    <script src="../js/hintspopup.js"></script>
+    <!-- <script src="./js/pixel_gradient.js"></script> -->
+    <!-- <script type="text/javascript" src="../js/tv.js"></script>
+    <script type="text/javascript">
+      new TradingView.widget({
+        width: $(".productbody").innerWidth(),
+        height: 450,
+        symbol: "BINANCE:BTCUSDT",
+        interval: "240",
+        timezone: "Etc/UTC",
+        theme: "dark",
+        style: "1",
+        locale: "uk",
+        toolbar_bg: "#f1f3f6",
+        enable_publishing: false,
+        allow_symbol_change: true,
+        container_id: "tradingview_fdce5",
+      });
+    </script> -->
+  </body>
+</html>
