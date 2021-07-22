@@ -1475,6 +1475,7 @@ body.loading .overlay {
 }
 .part-one {
   font-size: 50px !important;
+  margin-top: 40px;
 }
 /* .part-one h1 {
   background: -webkit-linear-gradient(#eee, #333);
