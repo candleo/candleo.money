@@ -14,6 +14,9 @@
   --bg: #0b0b0bff;
   --bg2: #242424ff;
   /* --theme: linear-gradient(yellow, green); */
+  --bg-box1: #00d1ccff;
+  --bg-box2: #aa78a6ff;
+  --bg-box3: #2e6fd1ff;
 }
 
 *,
@@ -1488,7 +1491,7 @@ body.loading .overlay {
 
 .part-one,
 .part-two {
-  width: 40%;
+  width: 65%;
   text-align: center;
 }
 .part-one {
@@ -1524,14 +1527,41 @@ body.loading .overlay {
 body {
   background: linear-gradient(
     -45deg,
-    #000000,
-    #333333,
     #ffffff,
+    #aaaaaa,
     #333333,
-    #000000
+    #aaaaaa,
+    #ffffff
   );
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  /* background: url("./images/chart-img.png") no-repeat center/cover; */
+}
+/* body {
+  background: linear-gradient(
+    -45deg,
+    #00d1cc,
+    #240f52,
+    #351b6d,
+    #8d60f0,
+    #00d1cc,
+    #00d1cc,
+    #381e70,
+    #240f52,
+    #00d1cc
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+} */
+.img-body {
+  background: url("../images/chart-img.png") no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* z-index: 15; */
+  background-size: 300% 300%;
 }
 
 @keyframes gradient {
