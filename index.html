@@ -56,7 +56,8 @@
 
     <link rel="stylesheet" href="../css/alertify.css" />
     <link rel="stylesheet" href="../css/themes/bootstrap.rtl.css" />
-    <link rel="stylesheet" href="./css/style.css?v=1.12" />
+    <link rel="stylesheet" href="./css/style.css?v=1.13" />
+    <!-- <link rel="stylesheet" href="./css/style-mobile.css" /> -->
     <link rel="stylesheet" href="./css/barChart.css" />
     <link
       rel="preload"
@@ -96,6 +97,9 @@
     </div>
     <header class="hero">
       <div id="navbar" class="navbar">
+        <a href="javascript:void(0);" class="nav-open" onclick="navswitch()">
+          <i class="fa fa-bars fa-2x"></i>
+        </a>
         <h1 class="text-primary">
           <a href="./">
             <img
@@ -105,19 +109,10 @@
             />candleo.money</a
           >
         </h1>
-
-        <nav>
+        <nav id="nav">
           <ul>
             <li><a href="./">Home</a></li>
-            <!-- <li><a href="./dapp/#skate">Stake</a></li> -->
-            <!-- <li>
-              <a
-                href="https://docs.candleo.money/#/README?id=tokenomics"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Presale</a
-              >
-            </li> -->
+
             <li>
               <a
                 href="https://docs.candleo.money/"
@@ -129,12 +124,23 @@
             <li><a href="./dashboard.html">Dashboard</a></li>
           </ul>
         </nav>
-        <img
-          src="./favicon/oie_PzqPgVxixUvw.png"
-          height="40"
-          alt="l"
-          srcset=""
-        />
+        <div id="nav-img">
+          <img
+            class="nav-mobile"
+            src="./favicon/oie_PzqPgVxixUvw.png"
+            height="40"
+            alt="l"
+            srcset=""
+          />
+          <h2 class="nav-mobile">Join our communities:</h2>
+          <img
+            src="./favicon/oie_PzqPgVxixUvw.png"
+            height="40"
+            alt="l"
+            srcset=""
+          />
+        </div>
+
         <div class="social" id="social">
           <a
             href="https://github.com/candleo"

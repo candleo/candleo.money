@@ -1224,138 +1224,6 @@ td {
   grid-column: 1 / 8;
   width: 100%;
 }
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 5px 10px;
-    position: relative;
-  }
-  .hero .walletconnect img,
-  .social img,
-  .productheader img {
-    display: none;
-  }
-  nav ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    margin: auto 10px;
-  }
-
-  .social {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-area: auto;
-    gap: 5px;
-    margin: 5px 10px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .social a {
-    padding: 5px 10px;
-    margin: 3px 10px;
-  }
-
-  .hero .walletconnect {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    position: relative;
-    align-items: flex-start;
-    justify-content: space-between;
-    background-color: var(--bg);
-    color: var(--text);
-    padding: 0 10px;
-    transition: 0;
-    overflow: hidden;
-    top: 0;
-    margin-top: 15px;
-  }
-
-  .walletconnect .address,
-  .containerTopHeader .walletconnect .walletandnetwork {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .walletconnect .network,
-  /* .walletconnect .connectWallet, */
-  .walletconnect .addressname,
-  .tokenBalance {
-    margin: 5px 5px;
-    padding: 5px 5px;
-    /* margin: 0;
-    padding: 0; */
-  }
-
-  .walletconnect .addressvalue {
-    margin: 5px 5px;
-    padding: 5px 5px;
-  }
-
-  .walletconnect .connectWallet {
-    cursor: pointer;
-    /* border: 2px double var(--text-danger); */
-    padding: 5px 5px;
-    color: var(--text);
-    white-space: nowrap;
-  }
-
-  .walletconnect .address,
-  .walletconnect .walletandnetwork {
-    display: flex;
-    flex-direction: column;
-  }
-  main {
-    margin-top: 15px;
-  }
-
-  main .gamecontainer,
-  main .gamecontainerstake,
-  main .stakeboard,
-  /* .main .productheader, */
-  .main .productbody,
-  .main .productheaderNewStaker,.main .Predictheader {
-    display: flex;
-    flex-direction: column;
-  }
-  .pricepredictdetails,
-  .tradingview-widget-container {
-    width: 100%;
-  }
-
-  .main .productheader {
-    grid-template-columns: 1fr 1fr 1fr;
-    /* width: 120%; */
-    /* justify-content: center; */
-  }
-  .main .newStakerbody {
-    display: flex;
-    flex-direction: column;
-  }
-  .main .leftbox {
-    width: 100%;
-    /* height: auto; */
-  }
-  .main .rightbox {
-    width: 100%;
-    height: 1000px;
-    /* height: auto; */
-    /* border: firebrick solid 2px; */
-    /* background-color: ghostwhite; */
-  }
-
-  .alertify-notifier {
-    width: 10vw;
-  }
-  .alertify-notifier .ajs-message {
-    width: 90vw;
-  }
-}
 
 /* OverLay functions */
 
@@ -1581,3 +1449,60 @@ body {
   left: 0px;
   z-index: -1;
 } */
+.nav-open {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  color: #5aff15;
+}
+.nav-mobile {
+  display: none;
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 5px 10px;
+    position: relative;
+  }
+  .hero .walletconnect {
+    /* display: flex;
+    position: relative;
+    flex-direction: column;
+    height: auto; */
+    display: none;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  .nav-open {
+    display: block;
+  }
+  nav {
+    align-self: flex-start;
+  }
+  nav ul,
+  .navbar .social {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: flex-start;
+  }
+  nav ul li {
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+  .text-primary {
+    margin-bottom: 20px;
+  }
+  .navbar nav,
+  .navbar #nav-img,
+  .navbar .social {
+    display: none;
+  }
+  #nav-img h2 {
+    padding: 5px 10px;
+  }
+}

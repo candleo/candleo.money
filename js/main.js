@@ -52,3 +52,20 @@ $("#connectwallet").click(() => {
 });
 
 //  <i class="fa fa-circle text-danger"></i>Connect Wallet
+function navswitch() {
+  var x = document.getElementById("nav");
+  var x2 = document.getElementById("nav-img");
+  var x3 = document.getElementById("social");
+  // var navClass = document.getElementsByClassName("navbar");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    x2.style.display = "none";
+    x3.style.display = "none";
+    // navClass.style.flexDirection = "row";
+  } else {
+    x.style.display = "block";
+    x2.style.display = "flex";
+    x3.style.display = "flex";
+    // navClass.style.flexDirection = "column";
+  }
+}
