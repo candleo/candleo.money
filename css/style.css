@@ -1477,6 +1477,10 @@ body {
     height: auto; */
     display: none;
   }
+  .text-primary a {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
   .nav-mobile {
     display: block;
   }
@@ -1546,5 +1550,9 @@ body {
     font-size: 25px !important;
     margin-top: 0;
     margin-bottom: 70px;
+  }
+  .part-one img {
+    width: 40px;
+    height: 40px;
   }
 }
