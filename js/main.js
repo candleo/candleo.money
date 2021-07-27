@@ -69,3 +69,15 @@ function navswitch() {
     // navClass.style.flexDirection = "column";
   }
 }
+
+function accountswitch() {
+  var x = document.getElementById("walletconnect");
+  var y = document.getElementById("walletswitch");
+  if (x.style.display === "flex") {
+    x.style.display = "none";
+    y.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+  } else {
+    x.style.display = "flex";
+    y.innerHTML = '<i class="far fa-window-close"></i> ';
+  }
+}
