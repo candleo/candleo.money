@@ -57,14 +57,18 @@ function navswitch() {
   var x2 = document.getElementById("nav-img");
   var x3 = document.getElementById("social");
   // var navClass = document.getElementsByClassName("navbar");
+  var hrg = document.getElementById("hrgrad");
+
   if (x.style.display === "block") {
     x.style.display = "none";
     x2.style.display = "none";
+    hrg.style.display = "none";
     x3.style.display = "none";
     // navClass.style.flexDirection = "row";
   } else {
     x.style.display = "block";
     x2.style.display = "flex";
+    hrg.style.display = "block";
     x3.style.display = "flex";
     // navClass.style.flexDirection = "column";
   }
