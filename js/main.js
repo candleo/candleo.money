@@ -40,15 +40,49 @@ let scrolled = false;
 
 $("#connectwallet").click(() => {
   var themeElementbyHash = window.location.hash;
-  if (themeElementbyHash == "#pricepredict") {
-    initpriceContract(); // topFunction();
-  } else if (themeElementbyHash == "#stake") {
-    initContract();
-    // topFunction();
-  } else {
-    initContract();
-    // topFunction();
-  }
+  initpriceContract(); // topFunction();
+  // if (themeElementbyHash == "#pricepredict") {
+  //   initpriceContract(); // topFunction();
+  // } else if (themeElementbyHash == "#stake") {
+  //   initContract();
+  //   // topFunction();
+  // } else {
+  //   initContract();
+  //   // topFunction();
+  // }
 });
 
 //  <i class="fa fa-circle text-danger"></i>Connect Wallet
+function navswitch() {
+  var x = document.getElementById("nav");
+  var x2 = document.getElementById("nav-img");
+  var x3 = document.getElementById("social");
+  // var navClass = document.getElementsByClassName("navbar");
+  var hrg = document.getElementById("hrgrad");
+
+  if (x.style.display === "block") {
+    x.style.display = "none";
+    x2.style.display = "none";
+    hrg.style.display = "none";
+    x3.style.display = "none";
+    // navClass.style.flexDirection = "row";
+  } else {
+    x.style.display = "block";
+    x2.style.display = "flex";
+    hrg.style.display = "block";
+    x3.style.display = "flex";
+    // navClass.style.flexDirection = "column";
+  }
+}
+
+function accountswitch() {
+  var x = document.getElementById("walletconnect");
+  var y = document.getElementById("walletswitch");
+  if (x.style.display === "flex") {
+    x.style.display = "none";
+    y.innerHTML = '<i class="fas fa-sign-in-alt"></i> Sign In';
+  } else {
+    x.style.display = "flex";
+    y.innerHTML = '<i class="far fa-window-close"></i> ';
+  }
+}

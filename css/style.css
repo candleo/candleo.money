@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Gafata&family=Open+Sans:wght@300;400&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Gafata&family=Open+Sans:wght@300;400&display=swap"); */
 
 :root {
   /* --bg: #1e1b18ff; */
@@ -14,6 +14,9 @@
   --bg: #0b0b0bff;
   --bg2: #242424ff;
   /* --theme: linear-gradient(yellow, green); */
+  --bg-box1: #00d1ccff;
+  --bg-box2: #aa78a6ff;
+  --bg-box3: #2e6fd1ff;
 }
 
 *,
@@ -25,16 +28,156 @@ img,
   box-sizing: border-box;
 }
 
+/* cript */
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Regular.eot");
+  src: local("Gilroy Regular"), local("Gilroy-Regular"),
+    url("../fonts/gilroy/Gilroy-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Regular.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Regular.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Bold.eot");
+  src: local("Gilroy Bold"), local("Gilroy-Bold"),
+    url("../fonts/gilroy/Gilroy-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Bold.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Bold.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Black.eot");
+  src: local("Gilroy Black"), local("Gilroy-Black"),
+    url("../fonts/gilroy/Gilroy-Black.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Black.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Black.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Light.eot");
+  src: local("Gilroy Light"), local("Gilroy-Light"),
+    url("../fonts/gilroy/Gilroy-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Light.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Light.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Medium.eot");
+  src: local("Gilroy Medium"), local("Gilroy-Medium"),
+    url("../fonts/gilroy/Gilroy-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Medium.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Medium.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-MediumItalic.eot");
+  src: local("Gilroy Medium Italic"), local("Gilroy-MediumItalic"),
+    url("../fonts/gilroy/Gilroy-MediumItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-MediumItalic.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-MediumItalic.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-UltraLight.eot");
+  src: local("Gilroy UltraLight"), local("Gilroy-UltraLight"),
+    url("../fonts/gilroy/Gilroy-UltraLight.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-UltraLight.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-UltraLight.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-UltraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-RegularItalic.eot");
+  src: local("Gilroy Regular Italic"), local("Gilroy-RegularItalic"),
+    url("../fonts/gilroy/Gilroy-RegularItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-RegularItalic.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-RegularItalic.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-RegularItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-Extrabold.eot");
+  src: local("Gilroy Extrabold"), local("Gilroy-Extrabold"),
+    url("../fonts/gilroy/Gilroy-Extrabold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-Extrabold.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-Extrabold.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-Extrabold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Gilroy";
+  src: url("../fonts/gilroy/Gilroy-LightItalic.eot");
+  src: local("Gilroy Light Italic"), local("Gilroy-LightItalic"),
+    url("../fonts/gilroy/Gilroy-LightItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/gilroy/Gilroy-LightItalic.woff2") format("woff2"),
+    url("../fonts/gilroy/Gilroy-LightItalic.woff") format("woff"),
+    url("../fonts/gilroy/Gilroy-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+}
+
+*,
+*:after {
+  font-family: "Gilroy", sans-serif;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* cript end */
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Gafata", "Open Sans", sans-serif;
+  /* font-family: "Gafata", "Open Sans", sans-serif; */
+  font-family: "Open Sans", sans-serif;
+
   line-height: 1.5;
-  background-color: var(--bg2);
+  /* background-color: var(--bg2); */
+  /* background-color: rgb(146, 146, 146); */
+  /* background-color: black; */
   color: var(--text);
   /* opacity: 0.5; */
+  overflow-x: hidden;
 }
 
 ul {
@@ -136,13 +279,18 @@ nav ul li a {
   margin: 10px;
   color: var(--text);
   font-size: 21px;
-  border: var(--bg) solid 2px;
+  /* border: var(--bg) solid 2px; */
+  border-radius: 6px;
+  background: linear-gradient(to bottom, yellow, green);
+  color: black;
+  font-weight: bolder;
 }
 
 nav ul li a:hover,
 .social a:hover {
-  border: var(--theme) solid 2px;
+  /* border: var(--theme) solid 2px; */
   /* background-color: var(--bg2); */
+  background: linear-gradient(to bottom, green, yellow);
 }
 .social {
   display: flex;
@@ -154,7 +302,11 @@ nav ul li a:hover,
   font-size: 1rem;
   padding: 10px 10px;
   margin: 10px;
-  border: var(--bg) solid 2px;
+  /* border: var(--bg) solid 2px; */
+  background: linear-gradient(to bottom, yellow, green);
+  color: black;
+  font-weight: bolder;
+  border-radius: 5px;
 }
 
 .hummer {
@@ -215,7 +367,8 @@ nav ul li a:hover,
   border: 2px double var(--outline);
 } */
 
-main {
+main,
+.hero1 {
   margin-top: 200px;
 }
 
@@ -235,7 +388,7 @@ main .gamecontainer {
 
 main .gamecontainerstake {
   display: flex;
-  background-color: var(--bg2);
+  /* background-color: var(--bg2); */
   /* position: relative; */
   /* width: 95vw; */
   align-items: center;
@@ -719,16 +872,16 @@ td {
   cursor: pointer;
   padding: 10px 20px;
   /* margin: 5px 20px; */
-  background-color: var(--bg2);
+  /* background-color: var(--bg2); */
   box-shadow: 3px 3px 20px #5aff2b60;
   /* background-color: inherit; */
   /* when selected */
   /* background-color: var(--bg2); */
 }
 .dashboardOptionbtn:hover {
-  border: solid 2px var(--primary-text);
+  /* border: solid 2px var(--primary-text);
   padding: 8px 18px;
-  box-shadow: 5px 5px 20px #5aff2b60;
+  box-shadow: 5px 5px 20px #5aff2b60; */
 }
 
 .containerTopHeader {
@@ -873,8 +1026,18 @@ td {
 }
 .pricepredictdetails H3 {
   font-size: 24px;
-
   margin: 10px 10px 10px 0;
+  text-align: center;
+  margin-bottom: 60px;
+  /* border-bottom: linear-gradient(yellow, green); */
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to right, yellow, green) 100% 1;
+  border-top: none;
+  text-transform: uppercase;
+}
+.pricepredictdetails p {
+  font-size: 18px;
 }
 .pricepredictdetails ol {
   margin: 0 0 0 20px;
@@ -1062,138 +1225,6 @@ td {
   grid-column: 1 / 8;
   width: 100%;
 }
-/* Responsive for Mobile */
-@media (max-width: 768px) {
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    padding: 5px 10px;
-    position: relative;
-  }
-  .hero .walletconnect img,
-  .social img,
-  .productheader img {
-    display: none;
-  }
-  nav ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    margin: auto 10px;
-  }
-
-  .social {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-area: auto;
-    gap: 5px;
-    margin: 5px 10px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .social a {
-    padding: 5px 10px;
-    margin: 3px 10px;
-  }
-
-  .hero .walletconnect {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    position: relative;
-    align-items: flex-start;
-    justify-content: space-between;
-    background-color: var(--bg);
-    color: var(--text);
-    padding: 0 10px;
-    transition: 0;
-    overflow: hidden;
-    top: 0;
-    margin-top: 15px;
-  }
-
-  .walletconnect .address,
-  .containerTopHeader .walletconnect .walletandnetwork {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .walletconnect .network,
-  /* .walletconnect .connectWallet, */
-  .walletconnect .addressname,
-  .tokenBalance {
-    margin: 5px 5px;
-    padding: 5px 5px;
-    /* margin: 0;
-    padding: 0; */
-  }
-
-  .walletconnect .addressvalue {
-    margin: 5px 5px;
-    padding: 5px 5px;
-  }
-
-  .walletconnect .connectWallet {
-    cursor: pointer;
-    /* border: 2px double var(--text-danger); */
-    padding: 5px 5px;
-    color: var(--text);
-    white-space: nowrap;
-  }
-
-  .walletconnect .address,
-  .walletconnect .walletandnetwork {
-    display: flex;
-    flex-direction: column;
-  }
-  main {
-    margin-top: 15px;
-  }
-
-  main .gamecontainer,
-  main .gamecontainerstake,
-  main .stakeboard,
-  /* .main .productheader, */
-  .main .productbody,
-  .main .productheaderNewStaker,.main .Predictheader {
-    display: flex;
-    flex-direction: column;
-  }
-  .pricepredictdetails,
-  .tradingview-widget-container {
-    width: 100%;
-  }
-
-  .main .productheader {
-    grid-template-columns: 1fr 1fr 1fr;
-    /* width: 120%; */
-    /* justify-content: center; */
-  }
-  .main .newStakerbody {
-    display: flex;
-    flex-direction: column;
-  }
-  .main .leftbox {
-    width: 100%;
-    /* height: auto; */
-  }
-  .main .rightbox {
-    width: 100%;
-    height: 1000px;
-    /* height: auto; */
-    /* border: firebrick solid 2px; */
-    /* background-color: ghostwhite; */
-  }
-
-  .alertify-notifier {
-    width: 10vw;
-  }
-  .alertify-notifier .ajs-message {
-    width: 90vw;
-  }
-}
 
 /* OverLay functions */
 
@@ -1283,4 +1314,275 @@ body.loading .overlay {
   position: relative;
   background: linear-gradient(to bottom, yellow, green);
   margin: 5px 10px;
+  color: #000000;
+  font-weight: 400;
+}
+
+.module-border-wrap:hover {
+  padding: 2px;
+  position: relative;
+  background: linear-gradient(to bottom, green, yellow);
+  margin: 5px 10px;
+}
+
+/* New 20-07 */
+
+.hero1 {
+  width: 100vw;
+  /* height: 100vh; */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.hero1 a {
+  text-align: center;
+  align-self: center;
+  /* width: 100%; */
+  background: linear-gradient(to bottom, yellow, green);
+  margin: 5px 10px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+}
+.hero1 a:hover {
+  background: linear-gradient(to bottom, green, yellow);
+}
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  align-content: center;
+}
+
+.part-one,
+.part-two {
+  width: 65%;
+  text-align: center;
+}
+.part-one {
+  font-size: 50px !important;
+  margin-top: 40px;
+}
+/* .part-one h1 {
+  background: -webkit-linear-gradient(#eee, #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+} */
+.part-one h1 {
+  background: -webkit-linear-gradient(-131deg, yellow, green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.part-two img {
+  width: 70%;
+  height: 70%;
+}
+#myVideo {
+  width: 100vw;
+  min-height: 100%;
+}
+
+/* body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+} */
+body {
+  background: linear-gradient(
+    -45deg,
+    #ffffff,
+    #aaaaaa,
+    #333333,
+    #aaaaaa,
+    #ffffff
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  /* background: url("./images/chart-img.png") no-repeat center/cover; */
+}
+/* body {
+  background: linear-gradient(
+    -45deg,
+    #00d1cc,
+    #240f52,
+    #351b6d,
+    #8d60f0,
+    #00d1cc,
+    #00d1cc,
+    #381e70,
+    #240f52,
+    #00d1cc
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+} */
+.img-body {
+  background: url("../images/chart-img.png") no-repeat center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* z-index: 15; */
+  background-size: 300% 300%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+/* canvas {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+} */
+.nav-open {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 15px;
+  color: #5aff15;
+}
+.nav-mobile,
+.hero .walletswitch,
+#hrgrad {
+  display: none;
+}
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 5px 10px;
+    position: relative;
+  }
+  .hero .walletconnect,
+  .hero .walletconnect img {
+    /* display: flex;
+    position: relative;
+    flex-direction: column;
+    height: auto; */
+    display: none;
+  }
+  .text-primary a {
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+  .nav-mobile {
+    display: block;
+  }
+  .nav-open {
+    display: block;
+  }
+  nav {
+    align-self: flex-start;
+  }
+  nav ul,
+  .navbar .social {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    align-items: flex-start;
+  }
+  nav ul li {
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+  .text-primary {
+    margin-bottom: 20px;
+  }
+  .navbar nav,
+  .navbar #nav-img,
+  .navbar .social {
+    display: none;
+  }
+  #nav-img h2 {
+    padding: 5px 10px;
+    font-weight: 700;
+  }
+  .hero .walletconnect {
+    /* display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: space-between; */
+    background-color: var(--bg);
+    color: var(--text);
+    opacity: 0.8;
+    height: unset;
+    position: absolute;
+    /* bottom: -44px; */
+    right: 0;
+    top: unset;
+  }
+  .walletconnect .address {
+    margin-bottom: 10px;
+  }
+  .hero .walletswitch {
+    display: block;
+    padding: 10px;
+    background-color: var(--bg2);
+    position: absolute;
+    bottom: -44px;
+    right: 0;
+    z-index: 15;
+  }
+  .bar-graph {
+    height: 100vh !important;
+  }
+  .part-one,
+  .part-two {
+    width: 100%;
+    text-align: center;
+  }
+  .part-one {
+    font-size: 25px !important;
+    margin-top: 0;
+    margin-bottom: 70px;
+  }
+  .part-one img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .main .Predictheader {
+    flex-direction: column;
+  }
+  .main .productbody {
+    padding: 0;
+  }
+  .slotSelection label,
+  .dateSelection label {
+    margin: 5px 10px;
+    padding: 5px 10px;
+  }
+  .slotSelection select,
+  .dateSelection input {
+    margin: 5px 10px;
+    padding: 5px 10px;
+  }
+  .hrgrad {
+    width: 30vw;
+    border: 1px solid green;
+    border-image: linear-gradient(to right, yellow, green) 100% 1;
+    margin: 20px;
+  }
+  #nav-img {
+    align-self: start;
+    /* margin-top: 25px; */
+  }
 }
