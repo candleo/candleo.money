@@ -367,7 +367,8 @@ nav ul li a:hover,
   border: 2px double var(--outline);
 } */
 
-main {
+main,
+.hero1 {
   margin-top: 200px;
 }
 

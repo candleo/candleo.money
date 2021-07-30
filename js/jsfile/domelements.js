@@ -17,16 +17,18 @@ if (window.ethereum) {
 
     //genrate request for wallet connection
     var themeElementbyHash = window.location.hash;
-    if (themeElementbyHash == "#pricepredict") {
-      GameSlot = [];
-      initpriceContract(); // topFunction();
-    } else if (themeElementbyHash == "#stake") {
-      initContract();
-      // topFunction();
-    } else {
-      initContract();
-      // topFunction();
-    }
+    GameSlot = [];
+    initpriceContract(); // topFunction();
+    // if (themeElementbyHash == "#pricepredict") {
+    //   GameSlot = [];
+    //   initpriceContract(); // topFunction();
+    // } else if (themeElementbyHash == "#stake") {
+    //   initContract();
+    //   // topFunction();
+    // } else {
+    //   initContract();
+    //   // topFunction();
+    // }
     // initContract();
     if (net == "main") {
       // $("#home").html("<h1>Please Switch to Ropsten Networt</h1>");
