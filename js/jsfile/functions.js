@@ -2203,7 +2203,7 @@ defaultSlotSelection = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in ETH)
+      (in BNB)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -2222,7 +2222,7 @@ defaultSlotSelection = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlot[i]["amount"],
             "ether"
-          )} ETH</div>
+          )} BNB</div>
           <div class="minplayer slotbodychild">${GameSlot[i]["minPlayer"]}</div>
           <div class="maxplayer slotbodychild">${
             GameSlot[i]["PlayerLimit"]
@@ -2318,7 +2318,7 @@ participategetByID = async (_slot) => {
                         <div id="gameSlot_SelectedAmount">${web3.utils.fromWei(
                           GameSlot[_slot]["amount"],
                           "ether"
-                        )} ETH</div>
+                        )} BNB</div>
                       </div>
                     </div>
                     <div class="rowContainerParticipate">
@@ -2586,7 +2586,7 @@ HistorySlotSelection = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in ETH)
+      (in BNB)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -2605,7 +2605,7 @@ HistorySlotSelection = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlotHistory[i]["amount"],
             "ether"
-          )} ETH</div>
+          )} BNB</div>
           <div class="minplayer slotbodychild">${
             GameSlotHistory[i]["minPlayer"]
           }</div>
@@ -2777,7 +2777,7 @@ GameHistoryAllgetByID = async (_slot) => {
           <div class="playerValueChild playerValue">${web3.utils.fromWei(
             GameSlotHistoryAll[_slot]["amountWon"],
             "ether"
-          )} ETH</div>
+          )} BNB</div>
         </div>
       </div>
       <div class="playerdetails">
@@ -2846,7 +2846,7 @@ HistorySlotSelectionAll = () => {
     </div>
     <div class="pamount slotheaderchild">
       Participation Amount <br />
-      (in ETH)
+      (in BNB)
     </div>
     <div class="minplayer slotheaderchild">Min Players Required</div>
     <div class="maxplayer slotheaderchild">Max Players Limit</div>
@@ -2884,7 +2884,7 @@ HistorySlotSelectionAll = () => {
           <div class="pamount slotbodychild">${web3.utils.fromWei(
             GameSlotHistoryAll[ihs]["amount"],
             "ether"
-          )} ETH</div>
+          )} BNB</div>
           <div class="minplayer slotbodychild">${
             GameSlotHistoryAll[ihs]["minPlayer"]
           }</div>
