@@ -12,7 +12,8 @@ let net,
   lockTime,
   nowtime,
   test,
-  nextDay = 86400;
+  bscsoon = 0;
+nextDay = 86400;
 
 //Candleo Token
 let tokenabi, tokenadd, token;

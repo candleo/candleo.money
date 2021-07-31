@@ -168,7 +168,7 @@ initContract = () => {
       // $("#connectwallet").css("border", "2px double var(--text-safe)");
       web3.eth.getBalance(currentAccount).then((data) => {
         $("#tokenBalance").text(
-          "Balance: " + web3.utils.fromWei(data, "ether") + " ETH"
+          "Balance: " + web3.utils.fromWei(data, "ether") + " BNB"
         );
       });
     }
@@ -182,9 +182,10 @@ initContract = () => {
 initpriceContract = () => {
   metamaskIntegration()
     .then(() => {
+      let networkidname = web3.currentProvider.networkVersion;
       if (net == "main") {
         $("body").addClass("loading");
-        let networkidname = web3.currentProvider.networkVersion;
+        // let networkidname = web3.currentProvider.networkVersion;
         tokenadd = "0x56f7c2a441ccac31bd9e2ee232677d9265be390f";
         tokenabi = [
           {
@@ -1994,9 +1995,16 @@ initpriceContract = () => {
         ];
 
         transactionURL = "https://ropsten.etherscan.io";
+      } else if (net == "private") {
+        bscsoon = 1;
       }
-      token = new web3.eth.Contract(tokenabi, tokenadd);
-      pricepredict = new web3.eth.Contract(pricepredictabi, pricepredictadd);
+      if (networkidname == "56") {
+        bscsoon = 1;
+      }
+      if (bscsoon == 0) {
+        token = new web3.eth.Contract(tokenabi, tokenadd);
+        pricepredict = new web3.eth.Contract(pricepredictabi, pricepredictadd);
+      }
     })
     .then(() => {
       if (currentAccount) {
@@ -2015,10 +2023,10 @@ initpriceContract = () => {
     .then(() => {
       // console.log(currentDate);
       //Token Balance
-      if (currentAccount) {
+      if (currentAccount && bscsoon == 0) {
         web3.eth.getBalance(currentAccount).then((data) => {
           $("#tokenBalance").text(
-            "Balance: " + web3.utils.fromWei(data, "ether") + " ETH"
+            "Balance: " + web3.utils.fromWei(data, "ether") + " BNB"
           );
         });
         token.methods
@@ -2245,37 +2253,42 @@ defaultSlotSelection = () => {
 };
 
 searchSelectedDateSlot = async () => {
-  $("body").addClass("loading");
-  selectedDateForGameSlot =
-    new Date($("#gameSlot_SelectDate").val()).getTime() / 1000;
-  GameSlot = [];
-  if (!selectedDateForGameSlot) {
-    selectedDateForGameSlot = currentDate;
-  }
-  if (!currentDate) {
-    nowtime = new Date();
-    nowtime = nowtime.getTime() / 1000;
-    nowtime -= nowtime % nextDay;
-    selectedDateForGameSlot = nowtime;
+  if (bscsoon == 0) {
+    $("body").addClass("loading");
+    selectedDateForGameSlot =
+      new Date($("#gameSlot_SelectDate").val()).getTime() / 1000;
+    GameSlot = [];
+    if (!selectedDateForGameSlot) {
+      selectedDateForGameSlot = currentDate;
+    }
+    if (!currentDate) {
+      nowtime = new Date();
+      nowtime = nowtime.getTime() / 1000;
+      nowtime -= nowtime % nextDay;
+      selectedDateForGameSlot = nowtime;
+    } else {
+    }
+    pricepredict.methods
+      .GamePlaySlot(selectedDateForGameSlot)
+      .call()
+      .then((_availableGameSlot) => {
+        availableGameSlot = _availableGameSlot;
+      })
+      .then(async () => {
+        for (il = 0; il < availableGameSlot; il++) {
+          await pricepredict.methods
+            .GamePlay(selectedDateForGameSlot, il)
+            .call()
+            .then((_slotDetail) => {
+              GameSlot[il] = _slotDetail;
+            });
+        }
+        defaultSlotSelection();
+      });
   } else {
+    $(".slotcontainer").hide();
+    $(".slotcontainer").before("Coming Soon");
   }
-  pricepredict.methods
-    .GamePlaySlot(selectedDateForGameSlot)
-    .call()
-    .then((_availableGameSlot) => {
-      availableGameSlot = _availableGameSlot;
-    })
-    .then(async () => {
-      for (il = 0; il < availableGameSlot; il++) {
-        await pricepredict.methods
-          .GamePlay(selectedDateForGameSlot, il)
-          .call()
-          .then((_slotDetail) => {
-            GameSlot[il] = _slotDetail;
-          });
-      }
-      defaultSlotSelection();
-    });
 };
 
 participategetByID = async (_slot) => {
@@ -2628,85 +2641,89 @@ HistorySlotSelection = () => {
 };
 
 searchPlayersGameHistory = async () => {
-  $("body").addClass("loading");
-  selectedDateForGameHistory =
-    new Date($("#gameSlot_HistoryDate").val()).getTime() / 1000;
+  if (bscsoon == 0) {
+    $("body").addClass("loading");
+    selectedDateForGameHistory =
+      new Date($("#gameSlot_HistoryDate").val()).getTime() / 1000;
 
-  if (!selectedDateForGameHistory) {
-    selectedDateForGameHistory = currentDate;
-  }
-  if (!currentDate) {
-    nowtime = new Date();
-    nowtime = nowtime.getTime() / 1000;
-    nowtime -= nowtime % nextDay;
-    selectedDateForGameHistory = nowtime;
-  } else {
-  }
+    if (!selectedDateForGameHistory) {
+      selectedDateForGameHistory = currentDate;
+    }
+    if (!currentDate) {
+      nowtime = new Date();
+      nowtime = nowtime.getTime() / 1000;
+      nowtime -= nowtime % nextDay;
+      selectedDateForGameHistory = nowtime;
+    } else {
+    }
 
-  pricepredict.methods
-    .GamePlaySlot(selectedDateForGameHistory)
-    .call()
-    .then((_availableGameSlotforHistory) => {
-      availableGameSlotforHistory = _availableGameSlotforHistory;
-      // PlayerBidderHistory = Create2DArray(availableGameSlotforHistory);
-    })
-    .then(async () => {
-      for (ip = 0; ip < availableGameSlotforHistory; ip++) {
-        await pricepredict.methods
-          .GamePlay(selectedDateForGameHistory, ip)
-          .call()
-          .then((_slotDetail) => {
-            GameSlotHistory[ip] = _slotDetail;
-            PlayerBidderHistory[ip] = [];
-          });
-      }
-    })
-    .then(() => {
-      pricepredict.methods
-        .playerSlotCountUser(selectedDateForGameHistory)
-        .call({ from: currentAccount })
-        .then((_playerslotcount) => {
-          playerslotcount = _playerslotcount;
-        })
-        .then(async () => {
-          // console.log(playerslotcount);
-          for (ipn = 0; ipn < playerslotcount; ipn++) {
-            await pricepredict.methods
-              .playerinfoUser(selectedDateForGameHistory, ipn)
-              .call({ from: currentAccount })
-              .then((_playerposition) => {
-                PlayerInfoCount[ipn] = _playerposition;
-
-                // console.log(_playerposition);
-              });
-          }
-          // defaultSlotSelection();
-          // $("body").removeClass("loading");
-        })
-        .then(async () => {
-          if (playerslotcount != 0) {
-            for (ipnn = 0; ipnn < playerslotcount; ipnn++) {
+    pricepredict.methods
+      .GamePlaySlot(selectedDateForGameHistory)
+      .call()
+      .then((_availableGameSlotforHistory) => {
+        availableGameSlotforHistory = _availableGameSlotforHistory;
+        // PlayerBidderHistory = Create2DArray(availableGameSlotforHistory);
+      })
+      .then(async () => {
+        for (ip = 0; ip < availableGameSlotforHistory; ip++) {
+          await pricepredict.methods
+            .GamePlay(selectedDateForGameHistory, ip)
+            .call()
+            .then((_slotDetail) => {
+              GameSlotHistory[ip] = _slotDetail;
+              PlayerBidderHistory[ip] = [];
+            });
+        }
+      })
+      .then(() => {
+        pricepredict.methods
+          .playerSlotCountUser(selectedDateForGameHistory)
+          .call({ from: currentAccount })
+          .then((_playerslotcount) => {
+            playerslotcount = _playerslotcount;
+          })
+          .then(async () => {
+            // console.log(playerslotcount);
+            for (ipn = 0; ipn < playerslotcount; ipn++) {
               await pricepredict.methods
-                .BiddersUser(
-                  selectedDateForGameHistory,
-                  PlayerInfoCount[ipnn]["slot"],
-                  PlayerInfoCount[ipnn]["position"]
-                )
+                .playerinfoUser(selectedDateForGameHistory, ipn)
                 .call({ from: currentAccount })
-                .then((_BidderDetail) => {
-                  PlayerBidderHistory[PlayerInfoCount[ipnn]["slot"]][
-                    ipnn
-                  ] = _BidderDetail;
+                .then((_playerposition) => {
+                  PlayerInfoCount[ipn] = _playerposition;
+
+                  // console.log(_playerposition);
                 });
             }
+            // defaultSlotSelection();
+            // $("body").removeClass("loading");
+          })
+          .then(async () => {
+            if (playerslotcount != 0) {
+              for (ipnn = 0; ipnn < playerslotcount; ipnn++) {
+                await pricepredict.methods
+                  .BiddersUser(
+                    selectedDateForGameHistory,
+                    PlayerInfoCount[ipnn]["slot"],
+                    PlayerInfoCount[ipnn]["position"]
+                  )
+                  .call({ from: currentAccount })
+                  .then((_BidderDetail) => {
+                    PlayerBidderHistory[PlayerInfoCount[ipnn]["slot"]][ipnn] =
+                      _BidderDetail;
+                  });
+              }
 
-            HistorySlotSelection();
-          } else {
-            PlayerBidderHistory = [];
-          }
-          $("body").removeClass("loading");
-        });
-    });
+              HistorySlotSelection();
+            } else {
+              PlayerBidderHistory = [];
+            }
+            $("body").removeClass("loading");
+          });
+      });
+  } else {
+    $(".slotHistorycontainer").hide();
+    $(".slotHistorycontainer").before("Coming Soon");
+  }
 };
 
 GameHistoryAllgetByID = async (_slot) => {
@@ -2904,59 +2921,68 @@ HistorySlotSelectionAll = () => {
 };
 
 searchPlayersGameHistoryAll = async () => {
-  getBlockNoAndDetails().then(() => {
-    $("body").addClass("loading");
-    selectedDateForGameHistoryAll =
-      new Date($("#gameSlot_HistoryAllDate").val()).getTime() / 1000;
+  if (bscsoon == 0) {
+    getBlockNoAndDetails().then(() => {
+      $("body").addClass("loading");
+      selectedDateForGameHistoryAll =
+        new Date($("#gameSlot_HistoryAllDate").val()).getTime() / 1000;
 
-    if (!selectedDateForGameHistoryAll) {
-      selectedDateForGameHistoryAll = currentDate;
-    }
-    if (!currentDate) {
-      nowtime = new Date();
-      nowtime = nowtime.getTime() / 1000;
-      nowtime -= nowtime % nextDay;
-      selectedDateForGameHistoryAll = nowtime;
-    } else {
-    }
+      if (!selectedDateForGameHistoryAll) {
+        selectedDateForGameHistoryAll = currentDate;
+      }
+      if (!currentDate) {
+        nowtime = new Date();
+        nowtime = nowtime.getTime() / 1000;
+        nowtime -= nowtime % nextDay;
+        selectedDateForGameHistoryAll = nowtime;
+      } else {
+      }
 
-    pricepredict.methods
-      .GamePlaySlot(selectedDateForGameHistoryAll)
-      .call()
-      .then((_availableGameSlotforHistoryAll) => {
-        availableGameSlotforHistoryAll = _availableGameSlotforHistoryAll;
-        // PlayerBidderHistoryAll = Create2DArray(availableGameSlotforHistoryAll);
-      })
-      .then(async () => {
-        for (ig = 0; ig < availableGameSlotforHistoryAll; ig++) {
-          await pricepredict.methods
-            .GamePlay(selectedDateForGameHistoryAll, ig)
-            .call()
-            .then((_slotDetailAll) => {
-              GameSlotHistoryAll[ig] = _slotDetailAll;
-              PlayerBidderHistoryAll[ig] = [];
-            });
-        }
-      })
-      .then(async () => {
-        if (availableGameSlotforHistoryAll != 0) {
-          for (ik = 0; ik < availableGameSlotforHistoryAll; ik++) {
-            if (+GameSlotHistoryAll[ik]["bidBefore"] < +blockHash.timestamp)
-              for (jk = 0; jk < GameSlotHistoryAll[ik]["playersCounts"]; jk++) {
-                await pricepredict.methods
-                  .BiddersAll(selectedDateForGameHistoryAll, ik, jk)
-                  .call()
-                  .then((_BidderDetailkk) => {
-                    PlayerBidderHistoryAll[ik][jk] = _BidderDetailkk;
-                  });
-              }
+      pricepredict.methods
+        .GamePlaySlot(selectedDateForGameHistoryAll)
+        .call()
+        .then((_availableGameSlotforHistoryAll) => {
+          availableGameSlotforHistoryAll = _availableGameSlotforHistoryAll;
+          // PlayerBidderHistoryAll = Create2DArray(availableGameSlotforHistoryAll);
+        })
+        .then(async () => {
+          for (ig = 0; ig < availableGameSlotforHistoryAll; ig++) {
+            await pricepredict.methods
+              .GamePlay(selectedDateForGameHistoryAll, ig)
+              .call()
+              .then((_slotDetailAll) => {
+                GameSlotHistoryAll[ig] = _slotDetailAll;
+                PlayerBidderHistoryAll[ig] = [];
+              });
           }
+        })
+        .then(async () => {
+          if (availableGameSlotforHistoryAll != 0) {
+            for (ik = 0; ik < availableGameSlotforHistoryAll; ik++) {
+              if (+GameSlotHistoryAll[ik]["bidBefore"] < +blockHash.timestamp)
+                for (
+                  jk = 0;
+                  jk < GameSlotHistoryAll[ik]["playersCounts"];
+                  jk++
+                ) {
+                  await pricepredict.methods
+                    .BiddersAll(selectedDateForGameHistoryAll, ik, jk)
+                    .call()
+                    .then((_BidderDetailkk) => {
+                      PlayerBidderHistoryAll[ik][jk] = _BidderDetailkk;
+                    });
+                }
+            }
 
-          HistorySlotSelectionAll();
-        } else {
-          PlayerBidderHistoryAll = [];
-        }
-        $("body").removeClass("loading");
-      });
-  });
+            HistorySlotSelectionAll();
+          } else {
+            PlayerBidderHistoryAll = [];
+          }
+          $("body").removeClass("loading");
+        });
+    });
+  } else {
+    $(".slotHistoryAllcontainer").hide();
+    $(".slotHistoryAllcontainer").before("Coming Soon");
+  }
 };
