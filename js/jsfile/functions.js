@@ -2021,6 +2021,11 @@ initpriceContract = () => {
     })
     .then(getBlockNoAndDetails())
     .then(() => {
+      web3.eth.getBalance(currentAccount).then((data) => {
+        $("#tokenBalance").text(
+          "Balance: " + web3.utils.fromWei(data, "ether") + " BNB"
+        );
+      });
       // console.log(currentDate);
       //Token Balance
       if (currentAccount && bscsoon == 0) {
