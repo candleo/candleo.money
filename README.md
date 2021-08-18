@@ -4,26 +4,27 @@
 
 Candleo.money is a Defi project that aims to transfer total control of money in individuals hand. The purpose of launching Candleo.money is that it simplifies Bitcoin and Ethereum price prediction. The Candleo platform will be used for games such as BTC price prediction, spin the wheel, etc.
 
-The First product of the Candleo Platform that is " Bitcoin price prediction" will go live with in first week of the Uniswap listing.
+<!-- The First product of the Candleo Platform that is " Bitcoin price prediction" will go live with in first week of the Uniswap listing.
 The model is pretty simple- the opening price of 4 hour candle at 4PM UTC daily will decide the winner. The Players who wants to participate have to place their entry and amount to particiapte 6 hours before.
 Players need to predict what will be the opening price of candle at that time. The player who predicts closest price will win the game.
-If there are more than 1 individual whose predictions are correct then there will be a random selection of winner among them with the help of bot .
+If there are more than 1 individual whose predictions are correct then there will be a random selection of winner among them with the help of bot . -->
+The model of price prediction is pretty simple. The participants need to predict the opening price of 4 hour candle at 4PM UTC daily. The players who wants to participate have to place their entry and amount to participate 6 hours prior to the opening price of candle. The one who predict the closest price will win the game. In case of tie random selection of player will be there.
 
 ## Contract Addresses:
 
-**LEO Token**: [0x56f7c2a441ccac31bd9e2ee232677d9265be390f](https://etherscan.io/token/0x56f7c2a441ccac31bd9e2ee232677d9265be390f)
+**M38 Token**: [0x7c78520d87109739ffb0dcf35f11fc9f753d16a7](https://bscscan.com/token/0x7c78520d87109739ffb0dcf35f11fc9f753d16a7)
 
-**LEO Presale 1 Address**: [0x694Be13379ecD6bc09c02F7026d0F3C08D8cEE31](https://etherscan.io/address/0x694Be13379ecD6bc09c02F7026d0F3C08D8cEE31)
+**M38 Presale Address**: [Presale](https://app.unicrypt.network/amm/pancake-v2/ilo/0x3e1573C58b17d97e7c84C32D6f9aee074F246B18)
 
-Date : 20 October 2020
-Timing : coming soon
+Date : 28 August 2021
 
-**LEO Presale 2 Address**: [0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56](https://etherscan.io/address/0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56)
+
+<!-- **LEO Presale 2 Address**: [0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56](https://etherscan.io/address/0xa9e64f9383ee66ede0c16cc5e0d6ba2ab6106e56)
 
 Date : coming soon
-Timing : coming soon
+Timing : coming soon -->
 
-## Tokenomics
+<!-- ## Tokenomics
 
 | Sr. No. | Topic                        | Supply Details                  |
 | ------- | ---------------------------- | ------------------------------- |
@@ -39,7 +40,7 @@ Note: \*Presale and \*\*Uniswap details:
 | ----------------- | :---------------: | :-----: | :---------------: |
 | Presale 1         | 120000 LEO tokens | 250 ETH |  1 ETH = 480 LEO  |
 | Presale 2         | 90000 LEO tokens  | 250 ETH |  1 ETH = 360 LEO  |
-| Uniswap Liquidity | 70000 LEO tokens  |    -    |  1 ETH = 280 LEO  |
+| Uniswap Liquidity | 70000 LEO tokens  |    -    |  1 ETH = 280 LEO  | -->
 
 ## Pumponomics Ecosystem
 
